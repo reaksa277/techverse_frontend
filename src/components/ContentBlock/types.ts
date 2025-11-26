@@ -1,6 +1,6 @@
 import { TFunction } from "react-i18next";
 export interface ContentBlockProps {
-  icon: string;
+  icon?: string;
   title: string;
   content: string;
   section?: {
@@ -8,6 +8,8 @@ export interface ContentBlockProps {
     content: string;
     icon: string;
   }[];
+  list?: string[];
+  image?: string;
   button?: (
     | {
         title: string;

@@ -1,0 +1,15 @@
+{
+  "title": "Building a High-Performance Payment API for Fintech",
+  "text": "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
+  "list": [
+    "Optimized API response time: 230ms → 45ms",
+    "Implemented JWT + RBAC authentication",
+    "Introduced microservice architecture",
+    "Achieved 99.999% uptime"
+  ],
+  "button": [
+    {
+      "title": "View Case Study"
+    }
+  ]
+}

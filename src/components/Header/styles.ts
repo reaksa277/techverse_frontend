@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 
+
 export const HeaderSection = styled("header")`
-  padding: 1rem 0.5rem;
+//   padding: 1rem 0.5rem;
 
   .ant-row-space-between {
     align-items: center;
@@ -46,8 +47,18 @@ export const Burger = styled("div")`
 `;
 
 export const NotHidden = styled("div")`
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* spacing between links */
+
+  /* Hide on mobile */
   @media only screen and (max-width: 890px) {
     display: none;
+  }
+
+  /* Push the last child (Register button) to the right */
+  & > :last-child {
+    margin-left: auto;
   }
 `;
 
@@ -58,10 +69,11 @@ export const Menu = styled("h5")`
 `;
 
 export const CustomNavLinkSmall = styled(NavLink)`
-  font-size: 1.2rem;
-  color: #18216d;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E1F1F;
   transition: color 0.2s ease-in;
-  margin: 0.5rem 2rem;
+  margin: 0.5rem 1rem;
 
   @media only screen and (max-width: 768px) {
     margin: 1.25rem 2rem;
@@ -90,6 +102,7 @@ export const Span = styled("span")`
   &:focus {
     color: rgb(255, 130, 92);
     text-underline-position: under;
-    text-decoration: rgb(255, 130, 92) wavy underline;
+    // text-decoration: rgb(255, 130, 92) wavy underline;
   }
 `;
+

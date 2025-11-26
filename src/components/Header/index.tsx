@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
-import { SvgIcon } from "../../common/SvgIcon";
-import { Button } from "../../common/Button";
+import Logo from "../../assets/logo.png";
 import {
   HeaderSection,
   LogoContainer,
@@ -15,41 +14,94 @@ import {
   Outline,
   Span,
 } from "./styles";
+import { useHistory } from "react-router-dom";
+import { Box, Button } from "@mui/material";
+import { FormControl, Select } from "@mui/material";
+import { MenuItem as MuiMenuItem } from "@mui/material";
 
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
+  const [service, setService] = useState("");
+  const history = useHistory();
 
   const toggleButton = () => {
     setVisibility(!visible);
   };
 
+  const handleChange = (e: any) => {
+    const selected = e.target.value;
+    setService(selected);
+    history.push(selected); // route to selected page
+  };
+
   const MenuItem = () => {
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
+    const history = useHistory();
+
+    const goto = (path: string) => {
+      history.push(path);
       setVisibility(false);
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
+        <CustomNavLinkSmall onClick={() => goto("/about")}>
+          <Span>{t("About Us")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Mission")}</Span>
+        <CustomNavLinkSmall onClick={() => goto("/community")}>
+          <Span>{t("Community")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <Span>{t("Product")}</Span>
+        <FormControl sx={{ minWidth: 100 }}>
+          <CustomNavLinkSmall onClick={() => goto("/services")}>
+            <Span>{t("Services")}</Span>
+            <Select
+              value={service}
+              label="service"
+              onChange={handleChange}
+              displayEmpty
+              sx={{
+                "&:focus": {
+                  outline: "none",
+                  boxShadow: "none",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                },
+              }}
+            >
+              <MuiMenuItem value="/development">Development</MuiMenuItem>
+              <MuiMenuItem value="/cloud-engineering">
+                Cloud Engineering
+              </MuiMenuItem>
+              <MuiMenuItem value="/machine-learning">
+                Machine Learning
+              </MuiMenuItem>
+              <MuiMenuItem value="/it-consulting">IT Consulting</MuiMenuItem>
+              <MuiMenuItem value="/cybersecurity">Cybersecurity</MuiMenuItem>
+            </Select>
+          </CustomNavLinkSmall>
+        </FormControl>
+        <CustomNavLinkSmall onClick={() => goto("/case-studies")}>
+          <Span>{t("Case Studies")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <Span>
-            <Button>{t("Contact")}</Button>
-          </Span>
+        <CustomNavLinkSmall onClick={() => goto("/blog")}>
+          <Span>{t("Blog")}</Span>
         </CustomNavLinkSmall>
+        <CustomNavLinkSmall onClick={() => goto("/contact")}>
+          <Span>{t("Contact")}</Span>
+        </CustomNavLinkSmall>
+        <Box sx={{ display: "inline-block" }}>
+          <CustomNavLinkSmall
+            style={{ width: "100px" }}
+            onClick={() => goto("/register")}
+          >
+            <Span>
+              {/* <Button color="primary.main">{t("Register")}</Button> */}
+              <Button color="primary" variant="contained">{t("Register")}</Button>
+            </Span>
+          </CustomNavLinkSmall>
+          <CustomNavLinkSmall onClick={() => goto("/signup")}>
+            <Span>{t("Sign Up")}</Span>
+          </CustomNavLinkSmall>
+        </Box>
       </>
     );
   };
@@ -58,8 +110,8 @@ const Header = ({ t }: { t: TFunction }) => {
     <HeaderSection>
       <Container>
         <Row justify="space-between">
-          <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
+          <LogoContainer  to="/" aria-label="homepage">
+            <img src={Logo} alt="Logo" style={{ height: "40px" }} />
           </LogoContainer>
           <NotHidden>
             <MenuItem />

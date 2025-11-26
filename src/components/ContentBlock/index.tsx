@@ -14,6 +14,7 @@ import {
   MinPara,
   StyledRow,
   ButtonWrapper,
+  List,
 } from "./styles";
 
 const ContentBlock = ({
@@ -22,9 +23,11 @@ const ContentBlock = ({
   content,
   section,
   button,
+  list,
   t,
   id,
   direction,
+  image,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
@@ -43,12 +46,31 @@ const ContentBlock = ({
           direction={direction}
         >
           <Col lg={11} md={11} sm={12} xs={24}>
-            <SvgIcon src={icon} width="100%" height="100%" />
+            {icon && <SvgIcon src={icon} width="100%" height="100%" />}
+            {image && (
+              <img
+                src={image}
+                alt={title}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                  borderRadius: "16px",
+                  display: "block",
+                }}
+              />
+            )}
           </Col>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
+              <List>
+                {typeof list === "object" &&
+                  list.map((item: string, id: number) => {
+                    return <li key={id}>{t(item)}</li>;
+                  })}
+              </List>
               {direction === "right" ? (
                 <ButtonWrapper>
                   {typeof button === "object" &&
