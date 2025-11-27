@@ -10,16 +10,13 @@ import {
   NavLink,
   Extra,
   LogoContainer,
-  Para,
   Large,
-  Chat,
-  Empty,
   FooterContainer,
-  Language,
-  Label,
   LanguageSwitch,
   LanguageSwitchContainer,
 } from "./styles";
+import { Grid, Typography } from "@mui/material";
+import Logo from "../../assets/logo.png";
 
 interface SocialLinkProps {
   href: string;
@@ -49,45 +46,31 @@ const Footer = ({ t }: { t: TFunction }) => {
     <>
       <FooterSection>
         <Container>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              <Large to="/">{t("Tell us everything")}</Large>
-              <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
-              </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Policy")}</Title>
-              <Large to="/">{t("Application Security")}</Large>
-              <Large to="/">{t("Software Principles")}</Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Empty />
-              <Large to="/">{t("Support Center")}</Large>
-              <Large to="/">{t("Customer Support")}</Large>
-            </Col>
-          </Row>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Empty />
-              <Language>{t("Address")}</Language>
-              <Para>Rancho Santa Margarita</Para>
-              <Para>2131 Elk Street</Para>
-              <Para>California</Para>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Company")}</Title>
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+              <LogoContainer>
+                <img src={Logo} alt="Logo" style={{ width: "256px", height: "79px" }} />
+                <Typography variant="body1">
+                  “Innovating digital solutions for businesses.”
+                </Typography>
+              </LogoContainer>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6, lg: 2 }}>
+              <Title>{t("Quick Links")}</Title>
+              <Large to="/">{t("Home")}</Large>
               <Large to="/">{t("About")}</Large>
-              <Large to="/">{t("Blog")}</Large>
-              <Large to="/">{t("Press")}</Large>
-              <Large to="/">{t("Careers & Culture")}</Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Label htmlFor="select-lang">{t("Language")}</Label>
+              <Large to="/">{t("Services")}</Large>
+              <Large to="/">{t("Community")}</Large>
+              <Large to="/">{t("Contact")}</Large>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6, lg: 2 }}>
+              <Title>{t("Resources")}</Title>
+              <Large to="/">{t("Blogs & News")}</Large>
+              <Large to="/">{t("Case Studies")}</Large>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6, lg: 2 }}>
+                <Title>{t("Language")}</Title>
+              {/* <Label htmlFor="select-lang">{t("Language")}</Label> */}
               <LanguageSwitchContainer>
                 <LanguageSwitch onClick={() => handleChange("en")}>
                   <SvgIcon
@@ -106,11 +89,11 @@ const Footer = ({ t }: { t: TFunction }) => {
                   />
                 </LanguageSwitch>
               </LanguageSwitchContainer>
-            </Col>
-          </Row>
+            </Grid>
+          </Grid>
         </Container>
       </FooterSection>
-      <Extra>
+      {/* <Extra>
         <Container border={true}>
           <Row
             justify="space-between"
@@ -159,7 +142,7 @@ const Footer = ({ t }: { t: TFunction }) => {
             </FooterContainer>
           </Row>
         </Container>
-      </Extra>
+      </Extra> */}
     </>
   );
 };

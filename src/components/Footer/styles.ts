@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 export const FooterSection = styled("footer")`
   background: rgb(241, 242, 243);
-  padding: 2.5rem 0;
+  padding: 100px 0;
 `;
 
 export const Title = styled("h4")`
   font-size: 22px;
   text-transform: capitalize;
-  color: #18216d;
+  color: #1E1F1F;
 
   @media screen and (max-width: 414px) {
     padding: 1.5rem 0;
@@ -25,7 +25,7 @@ export const NavLink = styled(Link)`
   &:hover,
   &:active,
   &:focus {
-    color: #15418e;
+    color: #00B6C4;
   }
 `;
 
@@ -41,6 +41,7 @@ export const Extra = styled("section")`
 export const LogoContainer = styled("div")`
   display: flex;
   position: relative;
+  flex-direction: column;
 `;
 
 export const Para = styled("div")`
@@ -62,9 +63,9 @@ export const Large = styled(Link)`
   max-width: max-content;
 
   &:hover {
-    color: rgb(255, 130, 92);
+    color: #00B6C4;
     text-underline-position: under;
-    text-decoration: rgb(255, 130, 92) wavy underline;
+    text-decoration: #00B6C4 wavy underline;
   }
 `;
 
