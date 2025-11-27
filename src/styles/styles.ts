@@ -72,7 +72,7 @@ export const Styles = createGlobalStyle`
     }
 
     p {
-        font-family: 'Inter', serif;
+        // font-family: 'Inter', serif;
         color: #1E1F1F;
         font-size: 18px;
         line-height: 1.41;

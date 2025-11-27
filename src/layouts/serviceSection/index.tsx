@@ -61,8 +61,8 @@ export default function ServiceSection() {
         Our Core Services
       </Typography>
       <Grid container spacing={2}>
-        {services.map((service) => (
-          <Grid size={{ xs: 12, md: 6, lg: 4 }}>
+        {services.map((service, index) => (
+          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
             <Card
               sx={{
                 padding: 3,

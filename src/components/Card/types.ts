@@ -1,10 +1,9 @@
-import { TFunction } from "react-i18next";
-
 export interface CardProps {
   image: string;
   title: string;
   description: string;
-  link?: string;
+  tag?: string;
+  date?: string;
   button?: (
     | {
         title: string;
@@ -15,5 +14,4 @@ export interface CardProps {
         color: string;
       }
   )[];
-  t: TFunction;
 }
