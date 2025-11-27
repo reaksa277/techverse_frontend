@@ -3,14 +3,14 @@ import { createGlobalStyle } from "styled-components";
 export const Styles = createGlobalStyle`
 
     @font-face {
-        font-family: "Motiva Sans Light";
-        src: url("/fonts/Motiva-Sans-Light.ttf") format("truetype");
+        font-family: "Inter";
+        src: url("/fonts/Inter-Regular.ttf") format("truetype");
         font-style: normal;
     }
 
     @font-face {
-        font-family: "Motiva Sans Bold";
-        src: url("/fonts/Motiva-Sans-Bold.ttf") format("truetype");
+        font-family: "Inter Bold";
+        src: url("/fonts/Inter-Bold.ttf") format("truetype");
         font-style: normal;
     }
 
@@ -18,7 +18,7 @@ export const Styles = createGlobalStyle`
     body,
     html,
     a {
-        font-family: 'Motiva Sans Light', sans-serif;
+        font-family: 'Inter', sans-serif;
     }
 
 
@@ -57,7 +57,7 @@ export const Styles = createGlobalStyle`
     h4,
     h5,
     h6 {
-        font-family: 'Motiva Sans Bold', serif;
+        font-family: 'Inter', serif;
         color: #1E1F1F;
         font-size: 48px;
         line-height: 1.18;
@@ -72,6 +72,7 @@ export const Styles = createGlobalStyle`
     }
 
     p {
+        font-family: 'Inter', serif;
         color: #1E1F1F;
         font-size: 18px;
         line-height: 1.41;
