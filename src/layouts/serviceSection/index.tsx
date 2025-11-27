@@ -1,15 +1,10 @@
-import { Grid, Card, Typography, Link } from "@mui/material";
-import { ServicesWrapper, IconCircle } from "./styles";
-import { Icon } from "@iconify/react";
+import { Grid, Typography } from "@mui/material";
+import { ServicesWrapper } from "./styles";
+import { CardProps } from "../../components/Card/types";
+import { lazy } from "react";
+const CardBlog = lazy(() => import("../../components/Card"));
 
-interface ServiceSectionProps {
-  icon: string;
-  title: string;
-  description: string;
-  link: string;
-}
-
-const services: ServiceSectionProps[] = [
+const services: CardProps[] = [
   {
     icon: "solar:code-square-bold-duotone",
     title: "Development",
@@ -61,51 +56,19 @@ export default function ServiceSection() {
         Our Core Services
       </Typography>
       <Grid container spacing={2}>
-        {services.map((service, index) => (
-          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
-            <Card
-              sx={{
-                padding: 3,
-                height: "100%",
-                "&:hover": {
-                  border: 1,
-                  borderColor: "primary.light",
-                },
-              }}
-            >
-              <IconCircle>
-                <Icon icon={service.icon} width="40" height="40" />
-              </IconCircle>
-              <Typography
-                variant="h5"
-                fontWeight={600}
-                color="grey.900"
-                mt={2}
-                mb={1}
-              >
-                {service.title}
-              </Typography>
-              <Typography variant="body2" color="secondary.main" mb={2}>
-                {service.description}
-              </Typography>
-              <Link
-                href={service.link}
-                sx={{
-                  textTransform: "underline",
-                  color: "primary.main",
-                  fontWeight: 600,
-                  alignItems: "center",
-                  display: "inline-flex",
-                  gap: 0.5,
-                }}
-              >
-                Learn more
-                <Icon width="16" height="16" icon="tabler:arrow-narrow-right" />
-              </Link>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+              {services.map((service, index) => (
+                <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
+                  <CardBlog
+                    title={service.title}
+                    description={service.description}
+                    image={service.image}
+                    tag={service.tag}
+                    icon={service.icon}
+                    link={service.link}
+                  />
+                </Grid>
+              ))}
+            </Grid>
     </ServicesWrapper>
   );
 }

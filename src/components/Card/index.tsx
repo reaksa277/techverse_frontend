@@ -1,8 +1,10 @@
+import { IconCircle } from "../../layouts/serviceSection/styles";
 import { primary } from "../../theme/palette";
 import { CardProps } from "./types";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Link } from "@mui/material";
+import { Icon } from "@iconify/react";
 
-const Card = ({ title, description, image, tag }: CardProps) => {
+const Card = ({ title, description, image, tag, icon, link }: CardProps) => {
   return (
     <Box
       sx={{
@@ -22,19 +24,26 @@ const Card = ({ title, description, image, tag }: CardProps) => {
         },
       }}
     >
-      <img style={{ borderRadius: "8px" }} src={image} alt={title} />
-      <Typography
-        sx={{
+      {image && <img style={{ borderRadius: "8px" }} src={image} alt={title} />}
+      {icon && (
+        <IconCircle>
+          <Icon icon={icon} width="40" height="40" />
+        </IconCircle>
+      )}
+      {tag && (
+        <Typography
+          sx={{
             padding: "4px 8px",
             backgroundColor: primary.lighter,
             color: primary.main,
             width: "fit-content",
             borderRadius: "16px",
-        }}
-        variant="body2"
-      >
-        {tag}
-      </Typography>
+          }}
+          variant="body2"
+        >
+          {tag}
+        </Typography>
+      )}
       <Typography
         sx={{
           display: "-webkit-box",
@@ -61,6 +70,22 @@ const Card = ({ title, description, image, tag }: CardProps) => {
       >
         {description}
       </Typography>
+      {link && (
+        <Link
+          href={link}
+          sx={{
+            textTransform: "underline",
+            color: "primary.main",
+            fontWeight: 600,
+            alignItems: "center",
+            display: "inline-flex",
+            gap: 0.5,
+          }}
+        >
+          Learn more
+          <Icon width="16" height="16" icon="tabler:arrow-narrow-right" />
+        </Link>
+      )}
     </Box>
   );
 };
