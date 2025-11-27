@@ -1,16 +1,16 @@
 import { lazy } from "react";
 import Herosection from "../../content/HeroSection.json";
 import CaseStudy from "../../content/CaseStudy.json";
-import ContactContent from "../../content/ContactContent.json";
 import paymentImg from "../../assets/payment.jpg";
+import CommunContent from "../../content/CommunContent.json";
 
-const Contact = lazy(() => import("../../components/ContactForm"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const HeroSection = lazy(() => import("../../layouts/heroSection"));
 const ServiceSection = lazy(() => import("../../layouts/serviceSection"));
 const BlogSection = lazy(() => import("../../layouts/blogSection"));
+const CommunSection = lazy(() => import("../../layouts/CommunSection"));
 
 const Home = () => {
   return (
@@ -33,10 +33,10 @@ const Home = () => {
           id="case-study"
         />
         <BlogSection />
-        <Contact
-          title={ContactContent.title}
-          content={ContactContent.text}
-          id="contact"
+        <CommunSection
+          title={CommunContent.title}
+          subtitle={CommunContent.subtitle}
+          button={CommunContent.button}
         />
       </Container>
     </>

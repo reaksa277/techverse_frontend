@@ -16,7 +16,7 @@ const Hero = ({ title, subtitle, button, t }: HeroProps) => {
         <HeroContent>
             <h1 style={{ color: "grey{900}" }}>{t(title)}</h1>
             <p style={{ color: "grey{500}" }}>{t(subtitle)}</p>
-            <Button color='primary.main'>{t(button)}</Button>
+            <Button>{t(button)}</Button>
         </HeroContent>
     </HeroSection>
   );
