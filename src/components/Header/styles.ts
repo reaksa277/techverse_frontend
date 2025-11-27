@@ -42,14 +42,13 @@ export const Burger = styled("div")`
   display: none;
 
   svg {
-    fill: #2e186a;
+    fill: #005662;
   }
 `;
 
 export const NotHidden = styled("div")`
   display: flex;
   align-items: center;
-  gap: 1rem; /* spacing between links */
 
   /* Hide on mobile */
   @media only screen and (max-width: 890px) {
