@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { ConmmunWrapper } from "./styles";
 import { Button } from "../../common/Button";
-import { TFunction } from "react-i18next";
 
 interface CommunProps {
     title: string;
