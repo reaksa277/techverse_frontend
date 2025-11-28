@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Container from "../../common/Container";
 
 interface PageHeaderProps {
@@ -8,10 +8,12 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
-    <Box sx={{ backgroundColor: "secondary.main", width: "100%" }}>
+    <Box sx={{ backgroundColor: "secondary.main", width: "100%", padding: "40px 0" }}>
       <Container>
-        <Typography fontWeight={700} variant="h4">{title}</Typography>
-        {subtitle && <Typography variant="body1">{subtitle}</Typography>}
+        <Stack spacing={2}>
+          <Typography fontWeight={700} variant="h3" color="grey.0">{title}</Typography>
+          {subtitle && <Typography variant="body1" color="grey.0">{subtitle}</Typography>}
+        </Stack>
       </Container>
     </Box>
   );

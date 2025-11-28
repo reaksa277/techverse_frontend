@@ -41,3 +41,13 @@ export interface validateProps {
   message: string;
   email: string;
 }
+
+
+export interface SearchInputProps {
+    value: string;
+    onChange: (
+      event:
+        | React.ChangeEvent<HTMLInputElement>
+        | React.ChangeEvent<HTMLTextAreaElement>
+    ) => void;
+}
