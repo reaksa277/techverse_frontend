@@ -10,6 +10,8 @@ const Card = ({ title, description, image, tag, icon, link }: CardProps) => {
       sx={{
         backgroundColor: "common.white",
         borderRadius: "16px",
+        border: 1,
+        borderColor: "grey.0",
         gap: "20px",
         padding: "20px",
         textAlign: "center",

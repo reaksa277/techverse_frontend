@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ServicesWrapper = styled.section`
-  padding: 60px 0;
   margin-top: 100px;
 `;
 

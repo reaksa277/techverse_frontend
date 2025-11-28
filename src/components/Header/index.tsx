@@ -3,6 +3,7 @@ import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import Logo from "../../assets/logo.png";
+import { Icon } from "@iconify/react";
 import {
   HeaderSection,
   LogoContainer,
@@ -88,13 +89,13 @@ const Header = ({ t }: { t: TFunction }) => {
         <CustomNavLinkSmall onClick={() => goto("/contact")}>
           <Span>{t("Contact")}</Span>
         </CustomNavLinkSmall>
-        <Box sx={{ display: "inline-block" }}>
+        <Box sx={{ display: "inline-block", alignItems: "center", ml: 2 }}>
+            <Icon icon="tabler:search" width="24" height="24" />
           <CustomNavLinkSmall
             style={{ width: "100px" }}
             onClick={() => goto("/register")}
           >
             <Span>
-              {/* <Button color="primary.main">{t("Register")}</Button> */}
               <Button color="primary" variant="contained">{t("Register")}</Button>
             </Span>
           </CustomNavLinkSmall>

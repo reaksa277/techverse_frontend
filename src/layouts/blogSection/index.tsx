@@ -36,7 +36,7 @@ const CardBlog = lazy(() => import("../../components/Card"));
 export default function BlogSection() {
   return (
     <BlogSectionWrapper>
-      <Typography variant="h3" fontWeight={700} mb={4}>
+      <Typography sx={{margin: 0}} variant="h3" fontWeight={700} mb={4}>
         Latest Blog & Tech News
       </Typography>
       {/* Blog posts would go here */}
@@ -64,7 +64,7 @@ export default function BlogSection() {
             gap: 0.5,
           }}
         >
-          Learn more
+          See more
           <Icon width="16" height="16" icon="tabler:arrow-narrow-right" />
         </Link>
       </Box>
