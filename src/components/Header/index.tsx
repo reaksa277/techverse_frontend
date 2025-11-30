@@ -14,6 +14,7 @@ import {
   Label,
   Outline,
   Span,
+  NavSelect,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import { Box, Button } from "@mui/material";
@@ -50,36 +51,28 @@ const Header = ({ t }: { t: TFunction }) => {
         <CustomNavLinkSmall onClick={() => goto("/community")}>
           <Span>{t("Community")}</Span>
         </CustomNavLinkSmall>
-        <FormControl sx={{ minWidth: 100 }}>
-          <CustomNavLinkSmall onClick={() => goto("/services")}>
-            <Span>{t("Services")}</Span>
-            <Select
-              value={service}
-              label="service"
-              onChange={handleChange}
-              displayEmpty
-              sx={{
-                "&:focus": {
-                  outline: "none",
-                  boxShadow: "none",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-              }}
-            >
-              <MuiMenuItem value="/development">Development</MuiMenuItem>
-              <MuiMenuItem value="/cloud-engineering">
-                Cloud Engineering
-              </MuiMenuItem>
-              <MuiMenuItem value="/machine-learning">
-                Machine Learning
-              </MuiMenuItem>
-              <MuiMenuItem value="/it-consulting">IT Consulting</MuiMenuItem>
-              <MuiMenuItem value="/cybersecurity">Cybersecurity</MuiMenuItem>
-            </Select>
-          </CustomNavLinkSmall>
-        </FormControl>
+        <NavSelect
+          variant="standard"
+          disableUnderline
+          value=""
+          displayEmpty
+          renderValue={() => <CustomNavLinkSmall><Span>{t("Service")}</Span></CustomNavLinkSmall>}
+          sx={{ minWidth: "auto" }} // remove extra width
+        >
+          <MuiMenuItem onClick={() => goto("/development")}>
+            {t("Development")}
+          </MuiMenuItem>
+          <MuiMenuItem onClick={() => goto("/cloud-engineer")}>{t("CloudEngineer")}</MuiMenuItem>
+          <MuiMenuItem onClick={() => goto("/machine-learning")}>
+            {t("Maching Learning")}
+          </MuiMenuItem>
+          <MuiMenuItem onClick={() => goto("/it-consulting")}>
+            {t("IT Consulting")}
+          </MuiMenuItem>
+          <MuiMenuItem onClick={() => goto("/cybersecurity")}>
+            {t("Cybersecurity")}
+          </MuiMenuItem>
+        </NavSelect>
         <CustomNavLinkSmall onClick={() => goto("/case-studies")}>
           <Span>{t("Case Studies")}</Span>
         </CustomNavLinkSmall>
@@ -90,13 +83,15 @@ const Header = ({ t }: { t: TFunction }) => {
           <Span>{t("Contact")}</Span>
         </CustomNavLinkSmall>
         <Box sx={{ display: "inline-block", alignItems: "center", ml: 2 }}>
-            <Icon icon="tabler:search" width="24" height="24" />
+          <Icon icon="tabler:search" width="24" height="24" />
           <CustomNavLinkSmall
             style={{ width: "100px" }}
             onClick={() => goto("/register")}
           >
             <Span>
-              <Button color="primary" variant="contained">{t("Register")}</Button>
+              <Button color="primary" variant="contained">
+                {t("Register")}
+              </Button>
             </Span>
           </CustomNavLinkSmall>
           <CustomNavLinkSmall onClick={() => goto("/signup")}>
@@ -111,7 +106,7 @@ const Header = ({ t }: { t: TFunction }) => {
     <HeaderSection>
       <Container>
         <Row justify="space-between">
-          <LogoContainer  to="/" aria-label="homepage">
+          <LogoContainer to="/" aria-label="homepage">
             <img src={Logo} alt="Logo" style={{ height: "40px" }} />
           </LogoContainer>
           <NotHidden>

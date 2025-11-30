@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
+import { Select } from "@mui/material";
 
 
 export const HeaderSection = styled("header")`
@@ -105,3 +106,28 @@ export const Span = styled("span")`
   }
 `;
 
+export const NavSelect = styled(Select)`
+  "&:before, &:after": {
+    display: "none",
+  },
+
+  "&.Mui-focused:before, &.Mui-focused:after": {
+    display: "none",
+  },
+
+  "& .MuiInputBase-root": {
+    border: "none",
+  }
+
+  "& .MuiSelect-select": {
+    padding: 0,
+  },
+
+  "&:hover": {
+    backgroundColor: "transparent",
+  },
+
+  "&.Mui-focused": {
+    backgroundColor: "transparent",
+  },
+`;
