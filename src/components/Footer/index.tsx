@@ -35,15 +35,15 @@ const Footer = ({ t }: { t: TFunction }) => {
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
               <Title>{t("Quick Links")}</Title>
               <Large to="/">{t("Home")}</Large>
-              <Large to="/">{t("About")}</Large>
-              <Large to="/">{t("Services")}</Large>
-              <Large to="/">{t("Community")}</Large>
-              <Large to="/">{t("Contact")}</Large>
+              <Large to="/about">{t("About")}</Large>
+              <Large to="/services">{t("Services")}</Large>
+              <Large to="/community">{t("Community")}</Large>
+              <Large to="/contact">{t("Contact")}</Large>
             </Grid>
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
               <Title>{t("Resources")}</Title>
-              <Large to="/">{t("Blogs & News")}</Large>
-              <Large to="/">{t("Case Studies")}</Large>
+              <Large to="/blog">{t("Blogs & News")}</Large>
+              <Large to="/case-studies">{t("Case Studies")}</Large>
             </Grid>
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
                 <Title>{t("Language")}</Title>

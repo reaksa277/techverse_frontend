@@ -65,7 +65,7 @@ export const Large = styled(Link)`
   &:hover {
     color: #00B6C4;
     text-underline-position: under;
-    text-decoration: #00B6C4 wavy underline;
+    text-decoration: #00B6C4 underline;
   }
 `;
 

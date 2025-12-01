@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
@@ -17,23 +17,49 @@ import {
   NavSelect,
 } from "./styles";
 import { useHistory } from "react-router-dom";
-import { Box, Button } from "@mui/material";
-import { FormControl, Select } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { MenuItem as MuiMenuItem } from "@mui/material";
+
+const LoginModal = lazy(() => import("../Modal/LoginModal"));
+const SignupModal = lazy(() => import("../Modal/SignupModal"));
 
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
-  const [service, setService] = useState("");
-  const history = useHistory();
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
 
   const toggleButton = () => {
     setVisibility(!visible);
   };
 
-  const handleChange = (e: any) => {
-    const selected = e.target.value;
-    setService(selected);
-    history.push(selected); // route to selected page
+  const AuthMenu = () => {
+    const history = useHistory();
+
+    const goto = (path: string) => {
+      history.push(path);
+      setVisibility(false);
+    };
+
+    return (
+      <>
+        <Stack spacing={2} direction="row" sx={{ alignItems: "center" }}>
+          <CustomNavLinkSmall onClick={() => goto("/search")}>
+            <Icon icon="tabler:search" width="24" height="24" />
+          </CustomNavLinkSmall>
+          <Button
+            fullWidth
+            color="primary"
+            onClick={() => setOpenSignup(true)}
+            variant="contained"
+          >
+            {t("Register")}
+          </Button>
+          <Button variant="text" onClick={() => setOpenLogin(true)}>
+            {t("Sign In")}
+          </Button>
+        </Stack>
+      </>
+    );
   };
 
   const MenuItem = () => {
@@ -56,13 +82,19 @@ const Header = ({ t }: { t: TFunction }) => {
           disableUnderline
           value=""
           displayEmpty
-          renderValue={() => <CustomNavLinkSmall><Span>{t("Service")}</Span></CustomNavLinkSmall>}
+          renderValue={() => (
+            <CustomNavLinkSmall>
+              <Span>{t("Service")}</Span>
+            </CustomNavLinkSmall>
+          )}
           sx={{ minWidth: "auto" }} // remove extra width
         >
           <MuiMenuItem onClick={() => goto("/development")}>
             {t("Development")}
           </MuiMenuItem>
-          <MuiMenuItem onClick={() => goto("/cloud-engineer")}>{t("CloudEngineer")}</MuiMenuItem>
+          <MuiMenuItem onClick={() => goto("/cloud-engineer")}>
+            {t("CloudEngineer")}
+          </MuiMenuItem>
           <MuiMenuItem onClick={() => goto("/machine-learning")}>
             {t("Maching Learning")}
           </MuiMenuItem>
@@ -82,22 +114,6 @@ const Header = ({ t }: { t: TFunction }) => {
         <CustomNavLinkSmall onClick={() => goto("/contact")}>
           <Span>{t("Contact")}</Span>
         </CustomNavLinkSmall>
-        <Box sx={{ display: "inline-block", alignItems: "center", ml: 2 }}>
-          <Icon icon="tabler:search" width="24" height="24" />
-          <CustomNavLinkSmall
-            style={{ width: "100px" }}
-            onClick={() => goto("/register")}
-          >
-            <Span>
-              <Button color="primary" variant="contained">
-                {t("Register")}
-              </Button>
-            </Span>
-          </CustomNavLinkSmall>
-          <CustomNavLinkSmall onClick={() => goto("/signup")}>
-            <Span>{t("Sign Up")}</Span>
-          </CustomNavLinkSmall>
-        </Box>
       </>
     );
   };
@@ -112,6 +128,7 @@ const Header = ({ t }: { t: TFunction }) => {
           <NotHidden>
             <MenuItem />
           </NotHidden>
+          <AuthMenu />
           <Burger onClick={toggleButton}>
             <Outline />
           </Burger>
@@ -128,8 +145,13 @@ const Header = ({ t }: { t: TFunction }) => {
             </Label>
           </Col>
           <MenuItem />
+          <AuthMenu />
         </Drawer>
       </Container>
+
+      {/* Modal */}
+      <LoginModal open={openLogin} onClose={() => setOpenLogin(false)} />
+      <SignupModal open={openSignup} onClose={() => setOpenSignup(false)} />
     </HeaderSection>
   );
 };

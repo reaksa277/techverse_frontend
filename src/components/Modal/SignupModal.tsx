@@ -1,14 +1,14 @@
 import {
   Box,
   Button,
-  Checkbox,
   FormControl,
-  FormControlLabel,
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
   Modal,
   OutlinedInput,
+  Select,
   Stack,
   TextField,
   Typography,
@@ -33,15 +33,20 @@ const style = {
   p: 3,
 };
 
-interface LoginModalProps {
+interface SingupModalProps {
   open: boolean;
   onClose: () => void;
 }
 
-const LoginModal = ({ open, onClose }: LoginModalProps) => {
+const SignupModal = ({ open, onClose }: SingupModalProps) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [who, setWho] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleClickShowConfirmPassword = () =>
+    setShowConfirmPassword((show) => !show);
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -74,19 +79,41 @@ const LoginModal = ({ open, onClose }: LoginModalProps) => {
             Welcome to TechVerse
           </Typography>
           <Typography variant="body1" sx={{ textAlign: "center" }} mb={2}>
-            Log in to access the platform, explore new technology, and share
-            knowledge.
+            Join now to engage with new technologies and participate in
+            knowledge sharing.
           </Typography>
         </Stack>
 
         <Stack spacing={2}>
+          <TextField fullWidth label="Full Name" margin="normal" />
           <TextField fullWidth label="Email" margin="normal" />
+          <FormControl fullWidth sx={{ mt: 2 }}>
+            <InputLabel id="who-label">Who Are You?</InputLabel>
+
+            <Select
+              labelId="who-label"
+              id="who"
+              value={who}
+              label="Who Are You?"
+              onChange={(e) => setWho(e.target.value)}
+              sx={{
+                borderRadius: "16px",
+                "& fieldset": {
+                  borderRadius: "16px",
+                },
+              }}
+            >
+              <MenuItem value="student">Student</MenuItem>
+              <MenuItem value="teacher">Teacher</MenuItem>
+              <MenuItem value="developer">Developer</MenuItem>
+              <MenuItem value="business">Business Owner</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+            </Select>
+          </FormControl>
           <FormControl sx={{ width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
+            <InputLabel htmlFor="password">Password</InputLabel>
             <OutlinedInput
-              id="outlined-adornment-password"
+              id="password"
               type={showPassword ? "text" : "password"}
               endAdornment={
                 <InputAdornment position="end">
@@ -109,19 +136,41 @@ const LoginModal = ({ open, onClose }: LoginModalProps) => {
             />
           </FormControl>
 
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Remember me"
-            sx={{ mt: 1 }}
-          />
+          <FormControl fullWidth variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-confirm-password">
+              Confirm Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-confirm-password"
+              type={showConfirmPassword ? "text" : "password"}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label={
+                      showConfirmPassword
+                        ? "hide the password"
+                        : "display the password"
+                    }
+                    onClick={handleClickShowConfirmPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    onMouseUp={handleMouseUpPassword}
+                    edge="end"
+                  >
+                    {showConfirmPassword ? VisibilityOff : Visibility}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Confirm Password"
+            />
+          </FormControl>
         </Stack>
 
         <Button variant="contained" fullWidth sx={{ mt: 2, height: "51px" }}>
-          Login
+          Create account
         </Button>
       </Box>
     </Modal>
   );
 };
 
-export default LoginModal;
+export default SignupModal;

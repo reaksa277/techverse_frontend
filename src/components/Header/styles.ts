@@ -5,7 +5,7 @@ import { Select } from "@mui/material";
 
 
 export const HeaderSection = styled("header")`
-//   padding: 1rem 0.5rem;
+  padding: 8px 0;
 
   .ant-row-space-between {
     align-items: center;
