@@ -25,7 +25,7 @@ const Home = () => {
       <Container>
         <ServiceSection />
         <ContentBlock
-          direction="right"
+          direction="left"
           title={CaseStudy.title}
           content={CaseStudy.text}
           list={CaseStudy.list}

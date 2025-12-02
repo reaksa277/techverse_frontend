@@ -71,7 +71,7 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => goto("/about")}>
+        <CustomNavLinkSmall onClick={() => goto("/about-us")}>
           <Span>{t("About Us")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => goto("/community")}>
@@ -128,7 +128,7 @@ const Header = ({ t }: { t: TFunction }) => {
           <NotHidden>
             <MenuItem />
           </NotHidden>
-          <AuthMenu />
+            <AuthMenu />
           <Burger onClick={toggleButton}>
             <Outline />
           </Burger>

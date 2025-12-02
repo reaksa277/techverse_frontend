@@ -1,4 +1,3 @@
-import { Row, Col } from "antd";
 import { Fade } from "react-awesome-reveal";
 import { withTranslation } from "react-i18next";
 
@@ -9,19 +8,16 @@ import {
   ContentSection,
   Content,
   ContentWrapper,
-  ServiceWrapper,
-  MinTitle,
-  MinPara,
   StyledRow,
   ButtonWrapper,
   List,
 } from "./styles";
+import { Grid, Typography } from "@mui/material";
 
 const ContentBlock = ({
   icon,
   title,
   content,
-  section,
   button,
   list,
   t,
@@ -45,86 +41,119 @@ const ContentBlock = ({
           id={id}
           direction={direction}
         >
-          <Col lg={11} md={11} sm={12} xs={24}>
-            {icon && <SvgIcon src={icon} width="100%" height="100%" />}
-            {image && (
-              <img
-                src={image}
-                alt={title}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  borderRadius: "16px",
-                  display: "block",
-                }}
-              />
+          <Grid container spacing={2} alignItems="center">
+            {direction === "right" ? (
+              <>
+                <Grid size={{ xs: 12, md: 6 }}>
+                  {icon && <SvgIcon src={icon} width="100%" height="100%" />}
+                  {image && (
+                    <img
+                      src={image}
+                      alt={title}
+                      style={{
+                        width: "100%",
+                        height: "331.88px",
+                        objectFit: "cover",
+                        borderRadius: "16px",
+                        display: "block",
+                      }}
+                    />
+                  )}
+                </Grid>
+                <Grid size={{ xs: 12, md: 6 }}>
+                  <ContentWrapper>
+                    <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
+                      {t(title)}
+                    </Typography>
+                    <Content>{t(content)}</Content>
+                    <List>
+                      {typeof list === "object" &&
+                        list.map((item: string, id: number) => {
+                          return <li key={id}>{t(item)}</li>;
+                        })}
+                    </List>
+                    <ButtonWrapper>
+                      {typeof button === "object" &&
+                        button.map(
+                          (
+                            item: {
+                              color?: string;
+                              title: string;
+                            },
+                            id: number
+                          ) => {
+                            return (
+                              <Button
+                                key={id}
+                                color={item.color}
+                                onClick={() => scrollTo("head")}
+                              >
+                                {t(item.title)}
+                              </Button>
+                            );
+                          }
+                        )}
+                    </ButtonWrapper>
+                  </ContentWrapper>
+                </Grid>
+              </>
+            ) : (
+              <>
+                <Grid size={{ xs: 12, md: 6 }}>
+                  <ContentWrapper>
+                    <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
+                      {t(title)}
+                    </Typography>
+                    <Content>{t(content)}</Content>
+                    <List>
+                      {typeof list === "object" &&
+                        list.map((item: string, id: number) => {
+                          return <li key={id}>{t(item)}</li>;
+                        })}
+                    </List>
+                    <ButtonWrapper>
+                      {typeof button === "object" &&
+                        button.map(
+                          (
+                            item: {
+                              color?: string;
+                              title: string;
+                            },
+                            id: number
+                          ) => {
+                            return (
+                              <Button
+                                key={id}
+                                color={item.color}
+                                onClick={() => scrollTo("head")}
+                              >
+                                {t(item.title)}
+                              </Button>
+                            );
+                          }
+                        )}
+                    </ButtonWrapper>
+                  </ContentWrapper>
+                </Grid>
+                <Grid size={{ xs: 12, md: 6 }}>
+                  {icon && <SvgIcon src={icon} width="100%" height="100%" />}
+                  {image && (
+                    <img
+                      src={image}
+                      alt={title}
+                      style={{
+                        width: "100%",
+                        height: "331.88px",
+                        objectFit: "cover",
+                        borderRadius: "16px",
+                        display: "block",
+                      }}
+                    />
+                  )}
+                </Grid>
+              </>
             )}
-          </Col>
-          <Col lg={11} md={11} sm={11} xs={24}>
-            <ContentWrapper>
-              <h6>{t(title)}</h6>
-              <Content>{t(content)}</Content>
-              <List>
-                {typeof list === "object" &&
-                  list.map((item: string, id: number) => {
-                    return <li key={id}>{t(item)}</li>;
-                  })}
-              </List>
-              {direction === "right" ? (
-                <ButtonWrapper>
-                  {typeof button === "object" &&
-                    button.map(
-                      (
-                        item: {
-                          color?: string;
-                          title: string;
-                        },
-                        id: number
-                      ) => {
-                        return (
-                          <Button
-                            key={id}
-                            color={item.color}
-                            onClick={() => scrollTo("head")}
-                          >
-                            {t(item.title)}
-                          </Button>
-                        );
-                      }
-                    )}
-                </ButtonWrapper>
-              ) : (
-                <ServiceWrapper>
-                  <Row justify="space-between">
-                    {typeof section === "object" &&
-                      section.map(
-                        (
-                          item: {
-                            title: string;
-                            content: string;
-                            icon: string;
-                          },
-                          id: number
-                        ) => {
-                          return (
-                            <Col key={id} span={11}>
-                              <SvgIcon
-                                src={item.icon}
-                                width="60px"
-                                height="60px"
-                              />
-                              <MinTitle>{t(item.title)}</MinTitle>
-                              <MinPara>{t(item.content)}</MinPara>
-                            </Col>
-                          );
-                        }
-                      )}
-                  </Row>
-                </ServiceWrapper>
-              )}
-            </ContentWrapper>
-          </Col>
+          </Grid>
         </StyledRow>
       </Fade>
     </ContentSection>
