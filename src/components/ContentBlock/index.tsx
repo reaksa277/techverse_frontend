@@ -60,12 +60,14 @@ const ContentBlock = ({
                     />
                   )}
                 </Grid>
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }} sx={{ padding: "20px" }}>
                   <ContentWrapper>
                     <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
                       {t(title)}
                     </Typography>
-                    <Content>{t(content)}</Content>
+                    <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
+                      {content}
+                    </Typography>
                     <List>
                       {typeof list === "object" &&
                         list.map((item: string, id: number) => {
@@ -99,7 +101,7 @@ const ContentBlock = ({
               </>
             ) : (
               <>
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }} sx={{ padding: "20px" }}>
                   <ContentWrapper>
                     <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
                       {t(title)}

@@ -10,6 +10,11 @@ const routes = [
     component: "Blog",
   },
   {
+    path: ["/about-us"],
+    exact: true,
+    component: "About",
+  },
+  {
     path: ["/detail-article"],
     exact: true,
     component: "Article/article-detail-page",
