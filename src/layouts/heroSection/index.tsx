@@ -10,17 +10,24 @@ interface HeroProps {
   title: string;
   subtitle: string;
   button: string;
+  id: string;
   t: TFunction;
 }
 
 const Hero = ({ title, subtitle, button, t }: HeroProps) => {
+    const scrollTo = (id: string) => {
+    const element = document.getElementById(id) as HTMLDivElement;
+    element.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
-    <HeroSection banner={Banner}>
+    <HeroSection id="head" banner={Banner}>
       <Container>
         <HeroContent>
           <h1 style={{ color: "grey{900}" }}>{t(title)}</h1>
           <p style={{ color: "grey{500}" }}>{t(subtitle)}</p>
-          <Button>{t(button)}</Button>
+          <Button onClick={() => scrollTo("head")}>{t(button)}</Button>
         </HeroContent>
       </Container>
     </HeroSection>

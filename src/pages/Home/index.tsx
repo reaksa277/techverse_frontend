@@ -15,13 +15,14 @@ const CommunSection = lazy(() => import("../../layouts/CommunSection"));
 const Home = () => {
   return (
     <>
+    <ScrollToTop />
       <HeroSection
         title={Herosection.title}
         subtitle={Herosection.subtitle}
         button={Herosection.button}
+        id="header"
       />
       <Container>
-        <ScrollToTop />
         <ServiceSection />
         <ContentBlock
           direction="right"
