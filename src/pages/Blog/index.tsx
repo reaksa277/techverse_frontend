@@ -29,7 +29,7 @@ const blogs: CardProps[] = [
     image: "/img/blog/card1.jpg",
     tag: "Case Study",
     date: "August 20, 2023",
-    link: "/#"
+    link: "/detail-article"
   },
   {
     title: "Building a High-Performance Payment API for Fintech",

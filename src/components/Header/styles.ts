@@ -6,6 +6,7 @@ import { Select } from "@mui/material";
 
 export const HeaderSection = styled("header")`
   padding: 8px 0;
+  background-color: #FFFFFF;
 
   .ant-row-space-between {
     align-items: center;
