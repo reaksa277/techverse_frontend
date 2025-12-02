@@ -5,6 +5,7 @@ import {
   TextField,
   Button,
   Box,
+  Pagination,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
 import SearchInput from "../../common/SearchInput";
@@ -113,7 +114,7 @@ const Blog = () => {
           sx={{ marginTop: "40px", marginBottom: "80px" }}
         >
           <Grid size={{ xs: 12, md: 6, lg: 8 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{justifyContent: "center"}}>
                 {blogs.map((blog, index) => (
                   <Grid size={{ xs: 12, md: 6, lg: 12 }} key={index}>
                     <CardBlog
@@ -125,6 +126,9 @@ const Blog = () => {
                     />
                   </Grid>
                 ))}
+                <Box sx={{margin: "8px 0"}}>
+                <Pagination count={5} color="secondary" />
+                </Box>
             </Grid>
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 4 }}></Grid>
