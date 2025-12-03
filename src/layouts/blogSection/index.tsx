@@ -12,6 +12,7 @@ const blogs: CardProps[] = [
     image: "/img/blog/card1.jpg",
     tag: "Case Study",
     date: "August 20, 2023",
+    link: "/detail-article"
   },
   {
     title: "Building a High-Performance Payment API for Fintech",
@@ -20,6 +21,7 @@ const blogs: CardProps[] = [
     image: "/img/blog/card2.jpg",
     tag: "Case Study",
     date: "August 20, 2023",
+    link: "/detail-article"
   },
   {
     title: "Building a High-Performance Payment API for Fintech",
@@ -28,10 +30,11 @@ const blogs: CardProps[] = [
     image: "/img/blog/card3.jpg",
     tag: "AI",
     date: "August 20, 2023",
+    link: "/detail-article"
   },
 ];
 
-const CardBlog = lazy(() => import("../../components/Card"));
+const CardBlog = lazy(() => import("../../components/CardBlog"));
 
 export default function BlogSection() {
   return (
@@ -48,13 +51,14 @@ export default function BlogSection() {
               description={blog.description}
               image={blog.image}
               tag={blog.tag}
+              link={blog.link}
             />
           </Grid>
         ))}
       </Grid>
       <Box height="20px" textAlign="center">
         <Link
-          href="#"
+          href="/blog"
           sx={{
             textTransform: "underline",
             color: "primary.main",

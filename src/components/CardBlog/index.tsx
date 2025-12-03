@@ -1,0 +1,131 @@
+import { IconCircle } from "../../layouts/serviceSection/styles";
+import { primary } from "../../theme/palette";
+import { CardProps } from "./types";
+import { Typography, Box, Link } from "@mui/material";
+import { Icon } from "@iconify/react";
+import { List } from "./styles";
+
+const Card = ({
+  title,
+  description,
+  image,
+  tag,
+  icon,
+  link,
+  list,
+}: CardProps) => {
+  return (
+    <Link href={link} style={{ textDecoration: "none" }}>
+      <Box
+        sx={{
+          backgroundColor: "common.white",
+          borderRadius: "16px",
+          border: 1,
+          borderColor: "grey.0",
+          gap: "20px",
+          padding: "16px",
+          textAlign: "center",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "start",
+          cursor: "pointer",
+          "&:hover": {
+            border: 1,
+            borderColor: "primary.light",
+          },
+        }}
+      >
+        {image && (
+          <img
+            style={{ borderRadius: "8px", width: "100%" }}
+            src={image}
+            alt={title}
+          />
+        )}
+        {icon && (
+          <IconCircle>
+            <Icon icon={icon} width="40" height="40" />
+          </IconCircle>
+        )}
+        {tag && (
+          <Typography
+            sx={{
+              padding: "4px 8px",
+              backgroundColor: primary.lighter,
+              color: primary.main,
+              width: "fit-content",
+              borderRadius: "16px",
+            }}
+            variant="body2"
+          >
+            {tag}
+          </Typography>
+        )}
+        <Typography
+          sx={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textAlign: "start",
+          }}
+          variant="h6"
+          gutterBottom
+        >
+          {title}
+        </Typography>
+        {description && (
+          <Typography
+            sx={{
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textAlign: "start",
+            }}
+            variant="body2"
+            color="textSecondary"
+          >
+            {description}
+          </Typography>
+        )}
+        {list && (
+          <List>
+            {typeof list === "object" &&
+              list.map((item: string, id: number) => {
+                return (
+                  <li
+                    key={id}
+                    style={{
+                      listStyle: "none",
+                      display: "flex",
+                      alignItems: "flex-start",
+                      textAlign: "start",
+                      gap: "8px",
+                    }}
+                  >
+                    <Box>
+                      <Icon
+                        icon="tabler:chevron-right"
+                        width="24px"
+                        height="24px"
+                      />
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{ display: "inline-block" }}
+                    >
+                      {item}
+                    </Typography>
+                  </li>
+                );
+              })}
+          </List>
+        )}
+      </Box>
+    </Link>
+  );
+};
+
+export default Card;

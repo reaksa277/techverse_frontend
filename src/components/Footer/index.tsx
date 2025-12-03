@@ -35,7 +35,7 @@ const Footer = ({ t }: { t: TFunction }) => {
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
               <Title>{t("Quick Links")}</Title>
               <Large to="/">{t("Home")}</Large>
-              <Large to="/about">{t("About")}</Large>
+              <Large to="/about-us">{t("About")}</Large>
               <Large to="/services">{t("Services")}</Large>
               <Large to="/community">{t("Community")}</Large>
               <Large to="/contact">{t("Contact")}</Large>

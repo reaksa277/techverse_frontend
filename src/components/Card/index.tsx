@@ -28,7 +28,6 @@ const Card = ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "start",
-        cursor: "pointer",
         "&:hover": {
           border: 1,
           borderColor: "primary.light",
@@ -77,7 +76,7 @@ const Card = ({
             overflow: "hidden",
             textAlign: "start",
           }}
-          variant="body2"
+          variant="body1"
           color="textSecondary"
         >
           {description}
