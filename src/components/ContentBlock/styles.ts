@@ -62,11 +62,9 @@ export const ButtonWrapper = styled("div")`
 `;
 
 export const List = styled("ul")`
-  padding-left: 1.2rem;
-  margin-bottom: 1.5rem;
 
   li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 150%;
     margin-bottom: 0.5rem;
   }

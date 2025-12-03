@@ -6,13 +6,13 @@ import { Button } from "../../common/Button";
 import { SvgIcon } from "../../common/SvgIcon";
 import {
   ContentSection,
-  Content,
   ContentWrapper,
   StyledRow,
   ButtonWrapper,
   List,
 } from "./styles";
 import { Grid, Typography } from "@mui/material";
+import { Icon } from "@iconify/react";
 
 const ContentBlock = ({
   icon,
@@ -62,7 +62,13 @@ const ContentBlock = ({
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }} sx={{ padding: "20px" }}>
                   <ContentWrapper>
-                    <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
+                    <Typography
+                      sx={{
+                        fontSize: "36px",
+                        fontWeight: "600",
+                        marginBottom: "20px",
+                      }}
+                    >
                       {t(title)}
                     </Typography>
                     <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
@@ -103,14 +109,39 @@ const ContentBlock = ({
               <>
                 <Grid size={{ xs: 12, md: 6 }} sx={{ padding: "20px" }}>
                   <ContentWrapper>
-                    <Typography sx={{ fontSize: "36px", fontWeight: "600" }}>
+                    <Typography
+                      sx={{
+                        fontSize: "36px",
+                        fontWeight: "600",
+                        marginBottom: "20px",
+                      }}
+                    >
                       {t(title)}
                     </Typography>
-                    <Content>{t(content)}</Content>
+                    <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
+                      {content}
+                    </Typography>
                     <List>
                       {typeof list === "object" &&
                         list.map((item: string, id: number) => {
-                          return <li key={id}>{t(item)}</li>;
+                          return (
+                            <li
+                              key={id}
+                              style={{
+                                listStyle: "none",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <Icon
+                                icon="tabler:chevron-right"
+                                width="24"
+                                height="24"
+                              />
+                              {t(item)}
+                            </li>
+                          );
                         })}
                     </List>
                     <ButtonWrapper>

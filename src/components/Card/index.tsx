@@ -3,8 +3,17 @@ import { primary } from "../../theme/palette";
 import { CardProps } from "./types";
 import { Typography, Box, Link } from "@mui/material";
 import { Icon } from "@iconify/react";
+import { List } from "./styles";
 
-const Card = ({ title, description, image, tag, icon, link }: CardProps) => {
+const Card = ({
+  title,
+  description,
+  image,
+  tag,
+  icon,
+  link,
+  list,
+}: CardProps) => {
   return (
     <Box
       sx={{
@@ -13,12 +22,12 @@ const Card = ({ title, description, image, tag, icon, link }: CardProps) => {
         border: 1,
         borderColor: "grey.0",
         gap: "20px",
-        padding: "20px",
+        padding: "16px",
         textAlign: "center",
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "start",
         cursor: "pointer",
         "&:hover": {
           border: 1,
@@ -59,19 +68,51 @@ const Card = ({ title, description, image, tag, icon, link }: CardProps) => {
       >
         {title}
       </Typography>
-      <Typography
-        sx={{
-          display: "-webkit-box",
-          WebkitLineClamp: 2,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
-          textAlign: "start",
-        }}
-        variant="body2"
-        color="textSecondary"
-      >
-        {description}
-      </Typography>
+      {description && (
+        <Typography
+          sx={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textAlign: "start",
+          }}
+          variant="body2"
+          color="textSecondary"
+        >
+          {description}
+        </Typography>
+      )}
+      {list && (
+        <List>
+          {typeof list === "object" &&
+            list.map((item: string, id: number) => {
+              return (
+                <li
+                  key={id}
+                  style={{
+                    listStyle: "none",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    textAlign: "start",
+                    gap: "8px",
+                  }}
+                >
+                  <Box>
+                    <Icon
+                      icon="tabler:chevron-right"
+                      width="24px"
+                      height="24px"
+                    />
+                  </Box>
+                  <Typography variant="body1" sx={{ display: "inline-block" }}>
+                    {item}
+                  </Typography>
+                </li>
+              );
+            })}
+        </List>
+      )}
       {link && (
         <Link
           href={link}

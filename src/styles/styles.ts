@@ -82,6 +82,11 @@ export const Styles = createGlobalStyle`
         font-weight: 600;
     }
 
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
     a {
         text-decoration: none;
         outline: none;

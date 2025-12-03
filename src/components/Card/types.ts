@@ -3,9 +3,10 @@ export interface CardProps {
   title: string;
   icon?: string;
   link?: string;
-  description: string;
+  description?: string;
   tag?: string;
   date?: string;
+  list?: string[];
   button?: (
     | {
         title: string;

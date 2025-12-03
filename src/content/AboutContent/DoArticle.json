@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Articles & Insights",
+    "list": [
+      "Expert-written blogs",
+      "Real-world tutorials",
+      "Code samples & best practices",
+      "Deep dives into technologies like AI, Cloud, Cybersecurity, and Full-Stack Development"
+    ],
+    "icon": "solar:documents-bold-duotone"
+  },
+  {
+    "title": "IT Industry Updates",
+    "list": [
+      "Latest tech trends",
+      "Tools & frameworks",
+      "Industry news and analysis"
+    ],
+    "icon": "solar:graph-up-bold-duotone"
+  },
+  {
+    "title": "Skill Development",
+    "list": [
+      "Learning paths",
+      "Roadmaps for beginner → advanced",
+      "Interview preparation content",
+      "Career guidance from professionals"
+    ],
+    "icon": "solar:shield-keyhole-minimalistic-bold-duotone"
+  },
+  {
+    "title": "Community",
+    "list": [
+      "Engineers sharing personal experiences",
+      "Q&A discussions",
+      "Study guides",
+      "Collaboration for improving technical skills"
+    ],
+    "icon": "solar:archive-up-minimlistic-bold-duotone"
+  }
+]
