@@ -11,6 +11,7 @@ const services: CardProps[] = [
     description:
       "Build high-performing digital products with modern frameworks like React, Next.js, and more.",
     link: "/development",
+    linkName: "Learn more",
   },
   {
     icon: "solar:folder-cloud-bold-duotone",
@@ -18,6 +19,7 @@ const services: CardProps[] = [
     description:
       "Scale your business with secure, cost-efficient cloud migration, DevOps, and infrastructure.",
     link: "/cloud",
+    linkName: "Learn more",
   },
   {
     icon: "solar:translation-2-line-duotone",
@@ -25,6 +27,7 @@ const services: CardProps[] = [
     description:
       "Leverage intelligent systems to automate processes and enhance decision-making.",
     link: "/machine-learning",
+    linkName: "Learn more",
   },
   {
     icon: "solar:wi-fi-router-bold-duotone",
@@ -32,6 +35,7 @@ const services: CardProps[] = [
     description:
       "From strategy to implementation — guide organizations to adopt modern technologies.",
     link: "/consulting",
+    linkName: "Learn more",
   },
   {
     icon: "solar:shield-check-bold-duotone",
@@ -39,6 +43,7 @@ const services: CardProps[] = [
     description:
       "Protect your systems with advanced monitoring, threat detection, and encryption.",
     link: "/cybersecurity",
+    linkName: "Learn more",
   },
   {
     icon: "solar:users-group-two-rounded-bold-duotone",
@@ -46,6 +51,7 @@ const services: CardProps[] = [
     description:
       "Join our network of IT professionals — share experiences and grow together.",
     link: "/community",
+    linkName: "Learn more",
   },
 ];
 
@@ -65,6 +71,7 @@ export default function ServiceSection() {
                     tag={service.tag}
                     icon={service.icon}
                     link={service.link}
+                    linkName={service.linkName}
                   />
                 </Grid>
               ))}
