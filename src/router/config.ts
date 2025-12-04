@@ -30,7 +30,7 @@ const routes = [
     component: "Article/article-detail-page",
   },
   {
-    path: ["/detail-case-studies"],
+    path: ["/detail-case-study"],
     exact: true,
     component: "Article/detail-case-study",
   },

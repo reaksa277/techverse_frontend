@@ -1,29 +1,20 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import Container from "../../common/Container";
+import HeadTitle from "../../components/Block/headTitle";
+
+import HeadTitleContent from "../../content/CaseStudyContent/HeadTitle.json"
 
 const CaseStudyDetail = () => {
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-          <Box style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Typography variant="h3">
-              Building a High-Performance Payment API for Fintech
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-              <img
-                src="{profile}"
-                alt="{author}"
-                style={{ width: "48px", height: "48px", borderRadius: "100px" }}
-              />
-              <Typography variant="body2">
-                Admin
-                author
-              </Typography>
-            </Stack>
-          </Box>
-        </Grid>
-        <Grid size={{ xs: 12, md: 6, lg: 6 }}></Grid>
-      </Grid>
+    <Container>
+        <HeadTitle
+            title={HeadTitleContent.title}
+            image={HeadTitleContent.image}
+            author={HeadTitleContent.author}
+            profile={HeadTitleContent.profile}
+            tag={HeadTitleContent.tag}
+        />
+    </Container>
     </>
   );
 };
