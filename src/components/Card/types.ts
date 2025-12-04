@@ -7,6 +7,7 @@ export interface CardProps {
   tag?: string;
   date?: string;
   list?: string[];
+  linkName?: string;
   button?: (
     | {
         title: string;

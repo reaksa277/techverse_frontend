@@ -13,6 +13,7 @@ const Card = ({
   icon,
   link,
   list,
+  linkName
 }: CardProps) => {
   return (
     <Box
@@ -34,7 +35,7 @@ const Card = ({
         },
       }}
     >
-      {image && <img style={{ borderRadius: "8px" }} src={image} alt={title} />}
+      {image && <img style={{ borderRadius: "8px", height: "210px" }} src={image} alt={title} />}
       {icon && (
         <IconCircle>
           <Icon icon={icon} width="40" height="40" />
@@ -124,7 +125,7 @@ const Card = ({
             gap: 0.5,
           }}
         >
-          Learn more
+          {linkName}
           <Icon width="16" height="16" icon="tabler:arrow-narrow-right" />
         </Link>
       )}
