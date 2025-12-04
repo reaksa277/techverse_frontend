@@ -11,6 +11,14 @@ export const StyledTextArea = styled("textarea")`
   resize: none;
   font-size: 0.875rem;
   height: 185px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  outline: none;
+
+  &:focus {
+    border-color: #00B6C4;
+    box-shadow: 0 0 0 2px D1D5DB;
+  }
 `;
 
 export const Label = styled("label")`

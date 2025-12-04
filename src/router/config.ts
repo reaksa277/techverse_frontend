@@ -15,6 +15,11 @@ const routes = [
     component: "About",
   },
   {
+    path: ["/contact"],
+    exact: true,
+    component: "Contact",
+  },
+  {
     path: ["/detail-article"],
     exact: true,
     component: "Article/article-detail-page",
