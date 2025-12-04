@@ -11,6 +11,7 @@ const CardDetail = ({
   tag,
   icon,
   link,
+  date,
 }: CardProps) => {
   return (
     <Box
@@ -26,7 +27,6 @@ const CardDetail = ({
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        cursor: "pointer",
         "&:hover": {
           border: 1,
           borderColor: "primary.light",
@@ -39,20 +39,23 @@ const CardDetail = ({
             <Icon icon={icon} width="40" height="40" />
           </IconCircle>
         )}
-        {tag && (
-          <Typography
-            sx={{
-              padding: "4px 8px",
-              backgroundColor: primary.lighter,
-              color: primary.main,
-              width: "fit-content",
-              borderRadius: "16px",
-            }}
-            variant="body2"
-          >
-            {tag}
-          </Typography>
-        )}
+        <Box sx={{display: "flex", justifyContent: "space-between"}}>
+          {tag && (
+            <Typography
+              sx={{
+                padding: "4px 8px",
+                backgroundColor: primary.lighter,
+                color: primary.main,
+                width: "fit-content",
+                borderRadius: "16px",
+              }}
+              variant="body2"
+            >
+              {tag}
+            </Typography>
+          )}
+          <Typography variant="body2">{date}</Typography>
+        </Box>
         <Typography
           sx={{
             display: "-webkit-box",
@@ -96,7 +99,13 @@ const CardDetail = ({
           </Link>
         )}
       </Stack>
-      {image && <img style={{ borderRadius: "8px", width: "265px" }} src={image} alt={title} />}
+      {image && (
+        <img
+          style={{ borderRadius: "8px", width: "265px" }}
+          src={image}
+          alt={title}
+        />
+      )}
     </Box>
   );
 };

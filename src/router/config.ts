@@ -29,6 +29,11 @@ const routes = [
     exact: true,
     component: "Article/article-detail-page",
   },
+  {
+    path: ["/detail-case-studies"],
+    exact: true,
+    component: "Article/detail-case-study",
+  },
 ];
 
 export default routes;

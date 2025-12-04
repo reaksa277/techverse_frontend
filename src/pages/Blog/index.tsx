@@ -6,11 +6,14 @@ import {
   Button,
   Box,
   Pagination,
+  Typography,
+  Stack,
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
 import SearchInput from "../../common/SearchInput";
 import { lazy, useState } from "react";
 import { CardProps } from "../../components/Card/types";
+import { primary } from "../../theme/palette";
 
 const CardBlog = lazy(() => import("../../components/CardDetail"));
 
@@ -38,6 +41,24 @@ const blogs: CardProps[] = [
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/blog/card2.jpg",
     tag: "Case Study",
+    date: "August 20, 2023",
+    link: "/detail-article"
+  },
+  {
+    title: "Building a High-Performance Payment API for Fintech",
+    description:
+      "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
+    image: "/img/blog/card3.jpg",
+    tag: "AI",
+    date: "August 20, 2023",
+    link: "/detail-article"
+  },
+  {
+    title: "The Fate of Google’s Ad Tech Monopoly Is Now in a Judge’s Hands",
+    description:
+      "A judge queried lawyers about whether a breakup made sense during closing arguments on how to fix the tech giant’s dominance in online advertising.",
+    image: "/img/blog/card3.jpg",
+    tag: "AI",
     date: "August 20, 2023",
     link: "/detail-article"
   },
@@ -123,6 +144,7 @@ const Blog = () => {
                       image={blog.image}
                       tag={blog.tag}
                       link={blog.link}
+                      date={blog.date}
                     />
                   </Grid>
                 ))}
@@ -131,7 +153,19 @@ const Blog = () => {
                 </Box>
             </Grid>
           </Grid>
-          <Grid size={{ xs: 12, md: 6, lg: 4 }}></Grid>
+          <Grid size={{ xs: 12, md: 6, lg: 4 }}>
+            <Box>
+                <Typography variant="h5" style={{color: primary.dark}}>Popular Article</Typography>
+                <Stack spacing={1} sx={{padding: "16px"}}>
+                    <img style={{borderRadius: "8px"}} src="/img/blog/card1.jpg" alt="Popular Article" />
+                    <Typography variant="h6">AMD Positions Itself as a Platform Power in the AI Era</Typography>
+                </Stack>
+                <Stack spacing={1} sx={{padding: "16px"}}>
+                    <img style={{borderRadius: "8px"}} src="/img/blog/card1.jpg" alt="Popular Article" />
+                    <Typography variant="h6">AMD Positions Itself as a Platform Power in the AI Era</Typography>
+                </Stack>
+            </Box>
+          </Grid>
         </Grid>
       </Container>
     </>

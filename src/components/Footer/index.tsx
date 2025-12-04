@@ -43,7 +43,7 @@ const Footer = ({ t }: { t: TFunction }) => {
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
               <Title>{t("Resources")}</Title>
               <Large to="/blog">{t("Blogs & News")}</Large>
-              <Large to="/case-studies">{t("Case Studies")}</Large>
+              <Large to="/case-study">{t("Case Studies")}</Large>
             </Grid>
             <Grid size={{ xs: 12, md: 6, lg: 2 }}>
                 <Title>{t("Language")}</Title>
