@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 import { Select } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 
 export const HeaderSection = styled("header")`
@@ -16,11 +17,6 @@ export const HeaderSection = styled("header")`
 
 export const LogoContainer = styled(Link)`
   display: flex;
-`;
-
-export const NavLink = styled("div")`
-  display: inline-block;
-  text-align: center;
 `;
 
 export const CustomNavLink = styled("div")`
@@ -76,6 +72,11 @@ export const CustomNavLinkSmall = styled(NavLink)`
   transition: color 0.2s ease-in;
   margin: 0.5rem 1rem;
 
+  &.active {
+    color: #00838F;
+    border-bottom: 2px solid #00838F;
+  }
+
   @media only screen and (max-width: 768px) {
     margin: 1.25rem 2rem;
   }
@@ -97,6 +98,10 @@ export const Outline = styled(MenuOutlined)`
 export const Span = styled("span")`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E1F1F;
+  transition: color 0.2s ease-in;
 
   &:hover,
   &:active,

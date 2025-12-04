@@ -33,17 +33,11 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   const AuthMenu = () => {
-    const history = useHistory();
-
-    const goto = (path: string) => {
-      history.push(path);
-      setVisibility(false);
-    };
 
     return (
       <>
         <Stack spacing={2} direction="row" sx={{ alignItems: "center" }}>
-          <CustomNavLinkSmall onClick={() => goto("/search")}>
+          <CustomNavLinkSmall to="/search">
             <Icon icon="tabler:search" width="24" height="24" />
           </CustomNavLinkSmall>
           <Button
@@ -71,10 +65,10 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => goto("/about-us")}>
+        <CustomNavLinkSmall to="/about-us">
           <Span>{t("About Us")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => goto("/community")}>
+        <CustomNavLinkSmall to="/community">
           <Span>{t("Community")}</Span>
         </CustomNavLinkSmall>
         <NavSelect
@@ -83,9 +77,7 @@ const Header = ({ t }: { t: TFunction }) => {
           value=""
           displayEmpty
           renderValue={() => (
-            <CustomNavLinkSmall>
               <Span>{t("Service")}</Span>
-            </CustomNavLinkSmall>
           )}
           sx={{ minWidth: "auto" }} // remove extra width
         >
@@ -105,13 +97,13 @@ const Header = ({ t }: { t: TFunction }) => {
             {t("Cybersecurity")}
           </MuiMenuItem>
         </NavSelect>
-        <CustomNavLinkSmall onClick={() => goto("/case-studies")}>
+        <CustomNavLinkSmall to="/case-study">
           <Span>{t("Case Studies")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => goto("/blog")}>
+        <CustomNavLinkSmall to="/blog">
           <Span>{t("Blog")}</Span>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => goto("/contact")}>
+        <CustomNavLinkSmall to="/contact">
           <Span>{t("Contact")}</Span>
         </CustomNavLinkSmall>
       </>
