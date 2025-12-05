@@ -1,0 +1,10 @@
+{
+    "title": "Problem",
+    "list": [
+        "API response time exceeding 200ms during high traffic",
+        "Monolithic architecture limiting scalability",
+        "Frequent downtime during deployment",
+        "Security gaps due to outdated authentication",
+        "Database bottlenecks causing slow transactions"
+    ]
+}

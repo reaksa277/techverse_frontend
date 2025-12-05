@@ -1,6 +1,5 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { primary } from "../../theme/palette";
-import { ContentSection } from "../ContentBlock/styles";
 
 interface Props {
   title: string;
@@ -13,7 +12,6 @@ interface Props {
 
 const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
   return (
-    <ContentSection>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 6, lg: 6 }}>
           <Stack
@@ -66,7 +64,6 @@ const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
           />
         </Grid>
       </Grid>
-    </ContentSection>
   );
 };
 
