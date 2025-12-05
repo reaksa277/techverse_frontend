@@ -53,6 +53,9 @@ const CaseStudyDetail = () => {
 
         {/* Problem */}
         <FlipBlock title={ProblemContent.title} list={ProblemContent.list} />
+
+        {/* Technology */}
+
       </Box>
     </Container>
   );
