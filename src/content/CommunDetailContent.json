@@ -1,0 +1,9 @@
+{
+  "title": "How to optimize API response time in Spring Boot?",
+  "image": "/img/blog/card1.jpg",
+  "profile": "/img/profile/user2.jpg",
+  "author": "Nikita Duggal",
+  "date": "August 20, 2023",
+  "tag": "Ask question",
+  "content": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?"
+}

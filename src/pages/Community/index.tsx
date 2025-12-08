@@ -31,6 +31,7 @@ const CommunityPage = () => {
                       image={item.image}
                       numReact={item.numReact}
                       numComment={item.numComment}
+                      link={item.link}
                     />
                   </Grid>
                 );

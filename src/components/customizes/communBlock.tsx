@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Link, Stack, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 
 interface CommunProps {
@@ -11,6 +11,7 @@ interface CommunProps {
   image?: string;
   numReact?: string;
   numComment?: string;
+  link: string;
 }
 
 const CommunBlock = ({
@@ -23,6 +24,7 @@ const CommunBlock = ({
   image,
   numReact,
   numComment,
+  link,
 }: CommunProps) => {
   return (
     <Box
@@ -32,7 +34,7 @@ const CommunBlock = ({
         gap: "20px",
         borderBottom: "1px solid",
         borderColor: "grey.300",
-        paddingBottom: "20px"
+        paddingBottom: "20px",
       }}
     >
       <Box
@@ -69,7 +71,9 @@ const CommunBlock = ({
         </Typography>
       </Box>
 
-      <Box
+      <Link
+        href={link}
+        underline="none"
         sx={{
           display: "flex",
           flexDirection: "row",
@@ -112,7 +116,7 @@ const CommunBlock = ({
             alt={question}
           />
         )}
-      </Box>
+      </Link>
       <Box
         sx={{
           display: "flex",
@@ -127,7 +131,10 @@ const CommunBlock = ({
         </Stack>
         <Stack direction="row" spacing={2}>
           <Icon icon="tabler:bubble" width="24" height="24" />
-          <Typography variant="body1">{numComment}</Typography>
+
+          <Link href={link} underline="none" color="common.black">
+            <Typography variant="body1">{numComment}</Typography>
+          </Link>
         </Stack>
       </Box>
     </Box>

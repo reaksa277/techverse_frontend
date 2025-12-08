@@ -8,7 +8,8 @@
         "description": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?",
         "image": "/img/blog/card1.jpg",
         "numReact": "4",
-        "numComment": "2"
+        "numComment": "2",
+        "link": "/detail-community"
     },
     {
         "profile": "/img/profile/user1.jpg",
@@ -18,7 +19,8 @@
         "question": "Optimize Database Queries for Performance",
         "description": "When working with high-traffic apps, always analyze slow queries and use proper indexing. Batch operations and caching can drastically reduce response times.",
         "numReact": "10",
-        "numComment": "12"
+        "numComment": "12",
+        "link": "/detail-community"
     },
     {
         "profile": "/img/profile/user1.jpg",
@@ -28,6 +30,7 @@
         "question": "Best Practices for Deploying React + Spring Boot in Production",
         "description": "Looking for guidance on CI/CD, environment setup, and optimizing frontend + backend deployments. Any recommended tools or hosting providers?",
         "numReact": "4",
-        "numComment": "2"
+        "numComment": "2",
+        "link": "/detail-community"
     }
 ]
