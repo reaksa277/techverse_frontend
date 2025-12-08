@@ -84,16 +84,16 @@ const Header = ({ t }: { t: TFunction }) => {
           <MuiMenuItem onClick={() => goto("/development")}>
             {t("Development")}
           </MuiMenuItem>
-          <MuiMenuItem onClick={() => goto("/cloud-engineer")}>
+          <MuiMenuItem onClick={() => goto("/development")}>
             {t("CloudEngineer")}
           </MuiMenuItem>
-          <MuiMenuItem onClick={() => goto("/machine-learning")}>
+          <MuiMenuItem onClick={() => goto("/development")}>
             {t("Maching Learning")}
           </MuiMenuItem>
-          <MuiMenuItem onClick={() => goto("/it-consulting")}>
+          <MuiMenuItem onClick={() => goto("/development")}>
             {t("IT Consulting")}
           </MuiMenuItem>
-          <MuiMenuItem onClick={() => goto("/cybersecurity")}>
+          <MuiMenuItem onClick={() => goto("/development")}>
             {t("Cybersecurity")}
           </MuiMenuItem>
         </NavSelect>

@@ -63,7 +63,7 @@ const Card = ({
           overflow: "hidden",
           textAlign: "start",
         }}
-        variant="h6"
+        variant="h5"
         gutterBottom
       >
         {title}

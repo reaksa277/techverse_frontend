@@ -1,0 +1,9 @@
+{
+    "title": "Technologies",
+    "list": [
+        "React, Next.js, Vue",
+        "Flutter, Kotlin, Swift",
+        "Spring Boot, Node.js, Laravel",
+        "PostgreSQL, MongoDB"
+    ]
+}

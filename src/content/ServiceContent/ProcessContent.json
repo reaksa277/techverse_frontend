@@ -1,0 +1,26 @@
+[
+    {
+        "number": "01",
+        "content": "Research & Planning"
+    },
+    {
+        "number": "02",
+        "content": "UI/UX Wireframes"
+    },
+    {
+        "number": "03",
+        "content": "Frontend & Backend Development"
+    },
+    {
+        "number": "04",
+        "content": "Testing & QA"
+    },
+    {
+        "number": "05",
+        "content": "Deployment"
+    },
+    {
+        "number": "06",
+        "content": "Maintenance & Updates"
+    }
+]

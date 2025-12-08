@@ -30,6 +30,11 @@ const routes = [
     component: "Community",
   },
   {
+    path: ["/development"],
+    exact: true,
+    component: "Service/development",
+  },
+  {
     path: ["/detail-article"],
     exact: true,
     component: "Article/article-detail-page",
