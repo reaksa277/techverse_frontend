@@ -29,7 +29,7 @@ const caseStudy: CardProps[] = [
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/casestudy/payment.jpg",
     tag: "Case Study",
-    link: "/detail-article",
+    link: "/detail-case-study",
     linkName: "View case study",
   },
   {
@@ -38,7 +38,7 @@ const caseStudy: CardProps[] = [
       "Built a high-performance e-commerce platform using React, Next.js, and Spring Boot. Implemented microservices architecture, integrated secure payment gateways, and achieved 99.9% uptime under high traffic.",
     image: "/img/casestudy/case1.png",
     tag: "Case Study",
-    link: "/detail-article",
+    link: "/detail-case-study",
     linkName: "View case study",
   },
   {
@@ -47,7 +47,7 @@ const caseStudy: CardProps[] = [
       "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
     image: "/img/casestudy/case2.png",
     tag: "Case Study",
-    link: "/detail-article",
+    link: "/detail-case-study",
     linkName: "View case study",
   },
   {
@@ -56,7 +56,7 @@ const caseStudy: CardProps[] = [
       "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
     image: "/img/casestudy/case3.webp",
     tag: "Case Study",
-    link: "/detail-article",
+    link: "/detail-case-study",
     linkName: "View case study",
   },
 ];

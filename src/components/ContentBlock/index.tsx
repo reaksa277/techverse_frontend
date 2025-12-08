@@ -11,7 +11,7 @@ import {
   ButtonWrapper,
   List,
 } from "./styles";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Link, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 
 const ContentBlock = ({
@@ -24,6 +24,8 @@ const ContentBlock = ({
   id,
   direction,
   image,
+  link,
+  linkName,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
@@ -144,28 +146,37 @@ const ContentBlock = ({
                           );
                         })}
                     </List>
-                    <ButtonWrapper>
-                      {typeof button === "object" &&
-                        button.map(
-                          (
-                            item: {
-                              color?: string;
-                              title: string;
-                            },
-                            id: number
-                          ) => {
-                            return (
-                              <Button
-                                key={id}
-                                color={item.color}
-                                onClick={() => scrollTo("head")}
-                              >
-                                {t(item.title)}
-                              </Button>
-                            );
-                          }
-                        )}
-                    </ButtonWrapper>
+                    {link && (
+                      <Link
+                        href={link}
+                        sx={{
+                          width: "100%",
+                          maxWidth: "180px",
+                          padding: "16px 0",
+                          marginTop: "16px",
+
+                          backgroundColor: "primary.main",
+                          color: "primary.contrastText",
+                          fontWeight: 600,
+                          borderRadius: "16px",
+
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+
+                          textAlign: "center",
+                          cursor: "pointer",
+
+                          transition: "background-color 0.3s ease",
+                          "&:hover": {
+                            backgroundColor: "primary.dark",
+                            color: "primary.contrastText"
+                          },
+                        }}
+                      >
+                        {linkName}
+                      </Link>
+                    )}
                   </ContentWrapper>
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>

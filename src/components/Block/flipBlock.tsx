@@ -16,7 +16,7 @@ const FlipBlock = ({ title, description, list }: Props) => {
       </Grid>
       <Grid size={{ xs: 12, md: 6, lg: 6 }}>
         {description && (
-          <Typography mt={3} variant="body1" sx={{ whiteSpace: "pre-line" }}>
+          <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
             {description}
           </Typography>
         )}

@@ -7,6 +7,8 @@ import ReviewContent from "../../content/CaseStudyContent/ReviewContent.json";
 import ResultContent from "../../content/CaseStudyContent/ResultContent.json";
 import FlipBlock from "../../components/Block/flipBlock";
 import ProblemContent from "../../content/CaseStudyContent/ProblemContent.json";
+import TechnologyContent from "../../content/CaseStudyContent/TechnologyContent.json";
+import FeedbackContent from "../../content/CaseStudyContent/FeedbackContent.json";
 
 const CaseStudyDetail = () => {
   return (
@@ -55,7 +57,10 @@ const CaseStudyDetail = () => {
         <FlipBlock title={ProblemContent.title} list={ProblemContent.list} />
 
         {/* Technology */}
+        <FlipBlock title={TechnologyContent.title} list={TechnologyContent.list} />
 
+        {/* client feetback */}
+        <FlipBlock title={FeedbackContent.title} description={FeedbackContent.description} />
       </Box>
     </Container>
   );

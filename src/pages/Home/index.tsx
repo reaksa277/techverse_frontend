@@ -29,7 +29,8 @@ const Home = () => {
           title={CaseStudy.title}
           content={CaseStudy.text}
           list={CaseStudy.list}
-          button={CaseStudy.button}
+          link={CaseStudy.link}
+          linkName={CaseStudy.linkName}
           image={paymentImg}
           id="case-study"
         />

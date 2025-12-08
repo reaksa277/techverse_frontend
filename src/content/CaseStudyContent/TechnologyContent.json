@@ -1,0 +1,12 @@
+{
+    "title": "Technologies",
+    "list": [
+        "Backend: Spring Boot, Java 17",
+        "Database: PostgreSQL (optimized with indexing & partitioning)",
+        "Cache: Redis",
+        "Messaging: Apache Kafka",
+        "Pipeline: GitHub Actions (CI/CD)",
+        "Monitoring: Prometheus, Grafana, ELK Stack",
+        "Security: JWT, RBAC, TLS 1.3"
+    ]
+}

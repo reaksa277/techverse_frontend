@@ -10,6 +10,8 @@ export interface ContentBlockProps {
   }[];
   list?: string[];
   image?: string;
+  link?: string;
+  linkName?: string;
   button?: (
     | {
         title: string;

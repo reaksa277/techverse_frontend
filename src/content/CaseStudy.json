@@ -7,9 +7,6 @@
     "Introduced microservice architecture",
     "Achieved 99.999% uptime"
   ],
-  "button": [
-    {
-      "title": "View Case Study"
-    }
-  ]
+  "link" : "/detail-case-study",
+  "linkName": "View case study"
 }
