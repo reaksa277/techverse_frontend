@@ -1,0 +1,22 @@
+[
+    {
+        "date": "1 day ago",
+        "tag": "Article",
+        "question": "How AI Code Assistants Are Transforming Software Development",
+        "description": "Discover how modern AI‑powered code assistants help developers write code faster, reduce bugs, and bridge the gap between design and production.",
+        "image": "/img/blog/card1.jpg",
+        "numReact": "4",
+        "numComment": "2",
+        "link": "/detail-community"
+    },
+    {
+        "date": "1 day ago",
+        "tag": "Ask question",
+        "question": "How to optimize API response time in Spring Boot?",
+        "description": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?",
+        "image": "/img/blog/card1.jpg",
+        "numReact": "4",
+        "numComment": "2",
+        "link": "/detail-community"
+    }
+]

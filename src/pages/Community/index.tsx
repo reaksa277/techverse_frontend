@@ -1,4 +1,4 @@
-import { Box, Grid, Pagination } from "@mui/material";
+import { Box, Divider, Grid, Pagination } from "@mui/material";
 import Container from "../../common/Container";
 import PageHeader from "../../components/PageHeader";
 import CommunBlock from "../../components/customizes/communBlock";
@@ -33,6 +33,7 @@ const CommunityPage = () => {
                       numComment={item.numComment}
                       link={item.link}
                     />
+                    <Divider/>
                   </Grid>
                 );
               })}

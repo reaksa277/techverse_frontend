@@ -25,6 +25,11 @@ const routes = [
     component: "Contact",
   },
   {
+    path: ["/profile"],
+    exact: true,
+    component: "Profile",
+  },
+  {
     path: ["/community"],
     exact: true,
     component: "Community",

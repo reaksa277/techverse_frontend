@@ -2,8 +2,8 @@ import { Box, Link, Stack, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 
 interface CommunProps {
-  profile: string;
-  author: string;
+  profile?: string;
+  author?: string;
   date?: string;
   tag?: string;
   question: string;
@@ -32,7 +32,6 @@ const CommunBlock = ({
         display: "flex",
         flexDirection: "column",
         gap: "20px",
-        borderBottom: "1px solid",
         borderColor: "grey.300",
         paddingBottom: "20px",
       }}
@@ -45,14 +44,20 @@ const CommunBlock = ({
           gap: "8px",
         }}
       >
-        <img
-          src={profile}
-          alt={author}
-          style={{ width: "48px", height: "48px", borderRadius: "100px" }}
-        />
+        {profile && (
+          <img
+            src={profile}
+            alt={author}
+            style={{ width: "48px", height: "48px", borderRadius: "100px" }}
+          />
+        )}
         <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-          <Typography variant="body1">{author}</Typography>
-          <Icon icon="tabler:circle-dot-filled" width="4" height="4" />
+          {author && (
+            <>
+              <Typography variant="body1">{author}</Typography>
+              <Icon icon="tabler:circle-dot-filled" width="4" height="4" />
+            </>
+          )}
           <Typography variant="body1">{date}</Typography>
         </Stack>
         <Typography
