@@ -1,0 +1,19 @@
+[
+  {
+    "avatar": "/img/profile/user2.jpg",
+    "author": "Linda",
+    "date": "Oct 30, 2025",
+    "comment": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?"
+  },
+  {
+    "avatar": "/img/profile/user3.jpg",
+    "author": "Linda",
+    "comment": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?"
+  },
+  {
+    "avatar": "/img/profile/user2.jpg",
+    "author": "Linda",
+    "date": "Oct 30, 2025",
+    "comment": "I’m working on a high-traffic system and need to reduce latency. What are the best practices for improving response time in Spring Boot?"
+  }
+]
