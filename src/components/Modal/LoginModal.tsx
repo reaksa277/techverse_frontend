@@ -80,9 +80,9 @@ const LoginModal = ({ open, onClose }: LoginModalProps) => {
         </Stack>
 
         <Stack spacing={2}>
-          <TextField fullWidth label="Email" margin="normal" />
+          <TextField fullWidth label="Email" margin="normal" required/>
           <FormControl sx={{ width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
+            <InputLabel htmlFor="outlined-adornment-password" required>
               Password
             </InputLabel>
             <OutlinedInput

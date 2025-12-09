@@ -85,10 +85,10 @@ const SignupModal = ({ open, onClose }: SingupModalProps) => {
         </Stack>
 
         <Stack spacing={2}>
-          <TextField fullWidth label="Full Name" margin="normal" />
-          <TextField fullWidth label="Email" margin="normal" />
+          <TextField fullWidth label="Full Name" margin="normal" required/>
+          <TextField fullWidth label="Email" margin="normal" required/>
           <FormControl fullWidth sx={{ mt: 2 }}>
-            <InputLabel id="who-label">Who Are You?</InputLabel>
+            <InputLabel id="who-label" required>Who Are You?</InputLabel>
 
             <Select
               labelId="who-label"
@@ -111,7 +111,7 @@ const SignupModal = ({ open, onClose }: SingupModalProps) => {
             </Select>
           </FormControl>
           <FormControl sx={{ width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="password">Password</InputLabel>
+            <InputLabel htmlFor="password" required>Password</InputLabel>
             <OutlinedInput
               id="password"
               type={showPassword ? "text" : "password"}
@@ -137,7 +137,7 @@ const SignupModal = ({ open, onClose }: SingupModalProps) => {
           </FormControl>
 
           <FormControl fullWidth variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-confirm-password">
+            <InputLabel htmlFor="outlined-adornment-confirm-password" required>
               Confirm Password
             </InputLabel>
             <OutlinedInput
