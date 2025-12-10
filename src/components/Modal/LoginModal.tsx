@@ -4,6 +4,7 @@ import {
   Checkbox,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -17,6 +18,7 @@ import { useState } from "react";
 import { Icon } from "@iconify/react";
 import Logo from "../../assets/logo.png";
 import CloseIcon from "@mui/icons-material/Close";
+import { useForm } from "react-hook-form";
 
 const Visibility = <Icon icon="tabler:eye-closed" width="24" height="24" />;
 const VisibilityOff = <Icon icon="tabler:eye" width="24" height="24" />;
@@ -39,6 +41,12 @@ interface LoginModalProps {
 }
 
 const LoginModal = ({ open, onClose }: LoginModalProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({ mode: "onChange" });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -79,46 +87,70 @@ const LoginModal = ({ open, onClose }: LoginModalProps) => {
           </Typography>
         </Stack>
 
-        <Stack spacing={2}>
-          <TextField fullWidth label="Email" margin="normal" required/>
-          <FormControl sx={{ width: "100%" }} variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password" required>
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label={
-                      showPassword
-                        ? "hide the password"
-                        : "display the password"
-                    }
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    onMouseUp={handleMouseUpPassword}
-                    edge="end"
-                  >
-                    {showPassword ? VisibilityOff : Visibility}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
+        <form onSubmit={handleSubmit((data) => console.log(data))}>
+          <Stack spacing={2}>
+            <TextField
+              fullWidth
+              label="Email"
+              margin="normal"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Invalid email format",
+                },
+              })}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+              required
             />
-          </FormControl>
+            <FormControl sx={{ width: "100%" }} variant="outlined" error={!!errors?.password}>
+              <InputLabel htmlFor="outlined-adornment-password" required>
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label={
+                        showPassword
+                          ? "hide the password"
+                          : "display the password"
+                      }
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      onMouseUp={handleMouseUpPassword}
+                      edge="end"
+                    >
+                      {showPassword ? VisibilityOff : Visibility}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+                {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                        value: 8,
+                        message: "Password must be at least 8 characters",
+                    }
+                })}
+              />
+              <FormHelperText>{errors.password?.message}</FormHelperText>
+            </FormControl>
 
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Remember me"
-            sx={{ mt: 1 }}
-          />
-        </Stack>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Remember me"
+              sx={{ mt: 1 }}
+            />
+          </Stack>
 
-        <Button variant="contained" fullWidth sx={{ mt: 2, height: "51px" }}>
-          Login
-        </Button>
+          <Button type="submit" disabled={!isValid} variant="contained" fullWidth sx={{ mt: 2, height: "51px" }}>
+            Login
+          </Button>
+        </form>
       </Box>
     </Modal>
   );
