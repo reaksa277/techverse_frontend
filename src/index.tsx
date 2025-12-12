@@ -6,15 +6,19 @@ import "antd/dist/antd.min.css";
 import Router from "./router";
 import i18n from "./translation";
 import ThemeProvider from "./theme";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 const App = () => (
-  <BrowserRouter>
-    <I18nextProvider i18n={i18n}>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <I18nextProvider i18n={i18n}>
         <ThemeProvider>
-            <Router />
+          <Router />
         </ThemeProvider>
-    </I18nextProvider>
-  </BrowserRouter>
+      </I18nextProvider>
+    </BrowserRouter>
+  </QueryClientProvider>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));
