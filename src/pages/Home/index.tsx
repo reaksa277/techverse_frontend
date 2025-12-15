@@ -1,5 +1,4 @@
 import { lazy } from "react";
-import Herosection from "../../content/HeroSection.json";
 import CaseStudy from "../../content/CaseStudy.json";
 import paymentImg from "../../assets/payment.jpg";
 import CommunContent from "../../content/CommunContent.json";
@@ -17,10 +16,11 @@ const Home = () => {
     <>
     <ScrollToTop />
       <HeroSection
-        title={Herosection.title}
-        subtitle={Herosection.subtitle}
-        button={Herosection.button}
-        id="header"
+        title_en="Hero.title_en"
+        title_kh="Hero.title_kh"
+        description_en="Hero.description_en"
+        description_kh="Hero.description_kh"
+        url="Hero.url"
       />
       <Container>
         <ServiceSection />

@@ -1,21 +1,53 @@
 import { HeroSection, HeroContent } from "./styles";
-import { withTranslation, TFunction } from "react-i18next";
 import Banner from "../../assets/banner.jpg";
 import { Button } from "../../common/Button";
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
+import axios from "axios";
 
 const Container = lazy(() => import("../../common/Container"));
 
 interface HeroProps {
-  title: string;
-  subtitle: string;
-  button: string;
-  id: string;
-  t: TFunction;
+  title_en: string;
+  title_kh: string;
+  description_en: string;
+  description_kh: string;
+  image?: string;
+  url: string;
 }
 
-const Hero = ({ title, subtitle, button, t }: HeroProps) => {
-    const scrollTo = (id: string) => {
+const Hero = ({ title_en, title_kh, description_en, description_kh, url }: HeroProps) => {
+  const [data, setData] = useState<HeroProps | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/api/slides");
+      const result = await response.data;
+      console.log("result", result.data[0]);
+
+      setData(result.data[0]);
+    } catch (err) {
+      setError("fail to fetch data");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
     element.scrollIntoView({
       behavior: "smooth",
@@ -25,13 +57,17 @@ const Hero = ({ title, subtitle, button, t }: HeroProps) => {
     <HeroSection id="head" banner={Banner}>
       <Container>
         <HeroContent>
-          <h1 style={{ color: "grey{900}" }}>{t(title)}</h1>
-          <p style={{ color: "grey{500}" }}>{t(subtitle)}</p>
-          <Button onClick={() => scrollTo("head")}>{t(button)}</Button>
+          <h1 style={{ color: "grey{900}" }}>
+            {data?.title_en ? data?.title_en : data?.title_kh}
+          </h1>
+          <p style={{ color: "grey{500}" }}>
+            {data?.description_en ? data?.description_en : data?.description_kh}
+          </p>
+          <Button onClick={() => scrollTo("head")}>{data?.url}</Button>
         </HeroContent>
       </Container>
     </HeroSection>
   );
 };
-
-export default withTranslation()(Hero);
+    
+export default Hero;
