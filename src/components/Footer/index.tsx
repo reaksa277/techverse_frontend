@@ -1,23 +1,15 @@
 import { withTranslation, TFunction } from "react-i18next";
-import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
-
-import i18n from "i18next";
 import {
   FooterSection,
   Title,
   LogoContainer,
   Large,
-  LanguageSwitch,
-  LanguageSwitchContainer,
 } from "./styles";
 import { Grid, Typography } from "@mui/material";
 import Logo from "../../assets/logo.png";
 
 const Footer = ({ t }: { t: TFunction }) => {
-  const handleChange = (language: string) => {
-    i18n.changeLanguage(language);
-  };
 
   return (
     <>
@@ -44,28 +36,6 @@ const Footer = ({ t }: { t: TFunction }) => {
               <Title>{t("Resources")}</Title>
               <Large to="/blog">{t("Blogs & News")}</Large>
               <Large to="/case-study">{t("Case Studies")}</Large>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6, lg: 2 }}>
-                <Title>{t("Language")}</Title>
-              {/* <Label htmlFor="select-lang">{t("Language")}</Label> */}
-              <LanguageSwitchContainer>
-                <LanguageSwitch onClick={() => handleChange("en")}>
-                  <SvgIcon
-                    src="united-states.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-                <LanguageSwitch onClick={() => handleChange("es")}>
-                  <SvgIcon
-                    src="spain.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-              </LanguageSwitchContainer>
             </Grid>
           </Grid>
         </Container>

@@ -19,7 +19,6 @@ import {
 import { useHistory } from "react-router-dom";
 import { Button, Stack } from "@mui/material";
 import { MenuItem as MuiMenuItem } from "@mui/material";
-
 const LoginModal = lazy(() => import("../Modal/LoginModal"));
 const SignupModal = lazy(() => import("../Modal/SignupModal"));
 
@@ -33,13 +32,29 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   const AuthMenu = () => {
-
     return (
       <>
         <Stack spacing={2} direction="row" sx={{ alignItems: "center" }}>
           <CustomNavLinkSmall to="/search">
             <Icon icon="tabler:search" width="24" height="24" />
           </CustomNavLinkSmall>
+          <NavSelect
+            variant="standard"
+            disableUnderline
+            value=""
+            displayEmpty
+            renderValue={() => (
+              <Icon icon="circle-flags:en" width="24px" height="24px" />
+            )}
+            sx={{ minWidth: "auto" }}
+          >
+            <MuiMenuItem>
+              <Icon icon="circle-flags:en" width="24px" height="24px" />
+            </MuiMenuItem>
+            <MuiMenuItem>
+              <Icon icon="circle-flags:kh" width="24px" height="24px" />
+            </MuiMenuItem>
+          </NavSelect>
           <Button
             fullWidth
             color="primary"
@@ -76,9 +91,7 @@ const Header = ({ t }: { t: TFunction }) => {
           disableUnderline
           value=""
           displayEmpty
-          renderValue={() => (
-              <Span>{t("Service")}</Span>
-          )}
+          renderValue={() => <Span>{t("Service")}</Span>}
           sx={{ minWidth: "auto" }} // remove extra width
         >
           <MuiMenuItem onClick={() => goto("/development")}>
@@ -120,7 +133,7 @@ const Header = ({ t }: { t: TFunction }) => {
           <NotHidden>
             <MenuItem />
           </NotHidden>
-            <AuthMenu />
+          <AuthMenu />
           <Burger onClick={toggleButton}>
             <Outline />
           </Burger>
