@@ -13,9 +13,9 @@ const Card = ({
   image,
   tag,
   icon,
-  link,
   list,
-  linkName
+  linkName,
+  url,
 }: CardProps) => {
   return (
     <Box
@@ -115,9 +115,9 @@ const Card = ({
             })}
         </List>
       )}
-      {link && (
+      {url && (
         <Link
-          href={link}
+          href={url}
           sx={{
             textTransform: "underline",
             color: "primary.main",

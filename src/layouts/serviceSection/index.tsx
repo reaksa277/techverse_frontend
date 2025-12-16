@@ -10,6 +10,7 @@ const icons = [
   "solar:folder-cloud-bold-duotone",
   "solar:translation-2-line-duotone",
   "solar:shield-check-bold-duotone",
+  "solar:bug-bold-duotone",
   "solar:users-group-two-rounded-bold-duotone",
 ];
 
@@ -23,8 +24,6 @@ const ServiceSection = () => {
     try {
       const response = await ArticleService.getArticles();
       const result = await response.json();
-
-      console.log("result", result.data);
 
       setServices(result.data);
     } catch (err) {
