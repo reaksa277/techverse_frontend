@@ -27,8 +27,8 @@ const categories = [
 
 const blogs: CardProps[] = [
   {
-    title: "AMD Positions Itself as a Platform Power in the AI Era",
-    description:
+    title_en: "AMD Positions Itself as a Platform Power in the AI Era",
+    info_en:
       "AMD’s focus on data center AI and open standards signals its ambition to become a core player in the trillion-dollar compute market.",
     image: "/img/blog/card1.jpg",
     tag: "Case Study",
@@ -36,8 +36,8 @@ const blogs: CardProps[] = [
     link: "/detail-article"
   },
   {
-    title: "Building a High-Performance Payment API for Fintech",
-    description:
+    title_en: "Building a High-Performance Payment API for Fintech",
+    info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/blog/card2.jpg",
     tag: "Case Study",
@@ -45,8 +45,8 @@ const blogs: CardProps[] = [
     link: "/detail-article"
   },
   {
-    title: "Building a High-Performance Payment API for Fintech",
-    description:
+    title_en: "Building a High-Performance Payment API for Fintech",
+    info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/blog/card3.jpg",
     tag: "AI",
@@ -54,8 +54,8 @@ const blogs: CardProps[] = [
     link: "/detail-article"
   },
   {
-    title: "The Fate of Google’s Ad Tech Monopoly Is Now in a Judge’s Hands",
-    description:
+    title_en: "The Fate of Google’s Ad Tech Monopoly Is Now in a Judge’s Hands",
+    info_en :
       "A judge queried lawyers about whether a breakup made sense during closing arguments on how to fix the tech giant’s dominance in online advertising.",
     image: "/img/blog/card3.jpg",
     tag: "AI",
@@ -63,8 +63,8 @@ const blogs: CardProps[] = [
     link: "/detail-article"
   },
   {
-    title: "Building a High-Performance Payment API for Fintech",
-    description:
+    title_en: "Building a High-Performance Payment API for Fintech",
+    info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/blog/card3.jpg",
     tag: "AI",
@@ -139,8 +139,8 @@ const Blog = () => {
                 {blogs.map((blog, index) => (
                   <Grid size={{ xs: 12, md: 6, lg: 12 }} key={index}>
                     <CardBlog
-                      title={blog.title}
-                      description={blog.description}
+                      title_en={blog.title_en}
+                      info_en={blog.info_en ? blog.info_en : blog.info_kh}
                       image={blog.image}
                       tag={blog.tag}
                       link={blog.link}

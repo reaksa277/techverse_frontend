@@ -84,8 +84,9 @@ const AboutPage = () => {
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
             <Card
               icon={Vision.icon}
-              title={Vision.title}
-              description={Vision.description}
+              title_en={Vision.title}
+              title_kh={Vision.title}
+              info_en={Vision.description}
             />
           </Grid>
         </Grid>
@@ -111,7 +112,7 @@ const AboutPage = () => {
             {WhatWeDoContent.map((item, index) => {
               return (
                 <Grid key={index} size={{ xs: 12, md: 6, lg: 6 }}>
-                  <Card icon={item.icon} title={item.title} list={item.list} />
+                  <Card icon={item.icon} title_en={item.title} list={item.list} />
                 </Grid>
               );
             })}
@@ -141,7 +142,7 @@ const AboutPage = () => {
           {OtherContent.map((item, index) => {
             return (
               <Grid key={index} size={{ xs: 12, md: 6, lg: 4 }}>
-                <Card title={item.title} list={item.list} />
+                <Card title_en={item.title} list={item.list} />
               </Grid>
             );
           })}

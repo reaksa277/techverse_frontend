@@ -31,10 +31,10 @@ const DevelopmentPage = () => {
 
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title={ProblemContent.title} list={ProblemContent.list} />
+            <Card title_en={ProblemContent.title} list={ProblemContent.list} />
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title={ProblemContent.title} list={ProblemContent.list} />
+            <Card title_en={ProblemContent.title} list={ProblemContent.list} />
           </Grid>
         </Grid>
 
@@ -62,10 +62,10 @@ const DevelopmentPage = () => {
 
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title={TechnoContent.title} list={TechnoContent.list} />
+            <Card title_en={TechnoContent.title} list={TechnoContent.list} />
           </Grid>
           <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title={ReasonWhyContent.title} list={ReasonWhyContent.list} />
+            <Card title_en={ReasonWhyContent.title} list={ReasonWhyContent.list} />
           </Grid>
         </Grid>
         </Box>

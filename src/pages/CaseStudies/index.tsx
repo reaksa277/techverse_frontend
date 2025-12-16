@@ -24,8 +24,8 @@ const categories = [
 
 const caseStudy: CardProps[] = [
   {
-    title: "Building a High-Performance Payment API for Fintech",
-    description:
+    title_en: "Building a High-Performance Payment API for Fintech",
+    info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
     image: "/img/casestudy/payment.jpg",
     tag: "Case Study",
@@ -33,8 +33,8 @@ const caseStudy: CardProps[] = [
     linkName: "View case study",
   },
   {
-    title: "Scalable E-Commerce Platform Development",
-    description:
+    title_en: "Scalable E-Commerce Platform Development",
+    info_en:
       "Built a high-performance e-commerce platform using React, Next.js, and Spring Boot. Implemented microservices architecture, integrated secure payment gateways, and achieved 99.9% uptime under high traffic.",
     image: "/img/casestudy/case1.png",
     tag: "Case Study",
@@ -42,8 +42,8 @@ const caseStudy: CardProps[] = [
     linkName: "View case study",
   },
   {
-    title: "Real-Time Chat Application",
-    description:
+    title_en: "Real-Time Chat Application",
+    info_en:
       "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
     image: "/img/casestudy/case2.png",
     tag: "Case Study",
@@ -51,8 +51,8 @@ const caseStudy: CardProps[] = [
     linkName: "View case study",
   },
   {
-    title: "Task & Project Management Tool",
-    description:
+    title_en: "Task & Project Management Tool",
+    info_en:
       "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
     image: "/img/casestudy/case3.webp",
     tag: "Case Study",
@@ -123,8 +123,8 @@ const Blog = () => {
               {caseStudy.map((item, index) => (
                 <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
                   <CardBlog
-                    title={item.title}
-                    description={item.description}
+                    title_en={item.title_en}
+                    info_en={item.info_en ? item.info_en : item.info_kh}
                     image={item.image}
                     tag={item.tag}
                     link={item.link}

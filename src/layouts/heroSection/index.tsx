@@ -23,11 +23,10 @@ const Hero = ({ title_en, title_kh, description_en, description_kh, url }: HeroP
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/slides");
+      const response = await axios.get("http://127.0.0.1:8000/api/slides/");
       const result = await response.data;
-      console.log("result", result.data[0]);
 
-      setData(result.data[0]);
+      setData(result.data);
     } catch (err) {
       setError("fail to fetch data");
     } finally {
@@ -69,5 +68,5 @@ const Hero = ({ title_en, title_kh, description_en, description_kh, url }: HeroP
     </HeroSection>
   );
 };
-    
+
 export default Hero;

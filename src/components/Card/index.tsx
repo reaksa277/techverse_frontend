@@ -6,8 +6,10 @@ import { Icon } from "@iconify/react";
 import { List } from "./styles";
 
 const Card = ({
-  title,
-  description,
+  title_en,
+  title_kh,
+  info_en,
+  info_kh,
   image,
   tag,
   icon,
@@ -35,7 +37,7 @@ const Card = ({
         },
       }}
     >
-      {image && <img style={{ borderRadius: "8px", height: "210px" }} src={image} alt={title} />}
+      {image && <img style={{ borderRadius: "8px", height: "210px" }} src={image} alt={title_en ? title_en : title_kh} />}
       {icon && (
         <IconCircle>
           <Icon icon={icon} width="40" height="40" />
@@ -66,9 +68,9 @@ const Card = ({
         variant="h5"
         gutterBottom
       >
-        {title}
+        {title_en ? title_en : title_kh}
       </Typography>
-      {description && (
+      {(info_en || info_kh) && (
         <Typography
           sx={{
             display: "-webkit-box",
@@ -80,7 +82,7 @@ const Card = ({
           variant="body1"
           color="textSecondary"
         >
-          {description}
+          {info_en ? info_en : info_kh}
         </Typography>
       )}
       {list && (

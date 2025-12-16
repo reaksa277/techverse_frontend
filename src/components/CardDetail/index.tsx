@@ -5,8 +5,10 @@ import { Link, Typography, Box, Stack } from "@mui/material";
 import { primary } from "../../theme/palette";
 
 const CardDetail = ({
-  title,
-  description,
+  title_en,
+  title_kh,
+  info_en,
+  info_kh,
   image,
   tag,
   icon,
@@ -39,7 +41,7 @@ const CardDetail = ({
             <Icon icon={icon} width="40" height="40" />
           </IconCircle>
         )}
-        <Box sx={{display: "flex", justifyContent: "space-between"}}>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           {tag && (
             <Typography
               sx={{
@@ -67,7 +69,7 @@ const CardDetail = ({
           variant="h6"
           gutterBottom
         >
-          {title}
+          {title_en ? title_en : title_kh}
         </Typography>
         <Typography
           sx={{
@@ -80,7 +82,7 @@ const CardDetail = ({
           variant="body2"
           color="textSecondary"
         >
-          {description}
+          {info_en ? info_en : info_kh}
         </Typography>
         {link && (
           <Link
@@ -103,7 +105,7 @@ const CardDetail = ({
         <img
           style={{ borderRadius: "8px", width: "265px" }}
           src={image}
-          alt={title}
+          alt={title_en ? title_en : title_kh}
         />
       )}
     </Box>

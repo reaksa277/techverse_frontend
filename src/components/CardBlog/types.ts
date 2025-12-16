@@ -1,9 +1,11 @@
 export interface CardProps {
   image?: string;
-  title: string;
+  title_en: string;
+  title_kh?: string;
   icon?: string;
   link?: string;
-  description?: string;
+  info_en?: string;
+  info_kh?: string;
   tag?: string;
   date?: string;
   list?: string[];
