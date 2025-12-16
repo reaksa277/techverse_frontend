@@ -9,7 +9,7 @@ const CardDetail = ({
   title_kh,
   info_en,
   info_kh,
-  image,
+  category_image,
   tag,
   icon,
   link,
@@ -101,10 +101,10 @@ const CardDetail = ({
           </Link>
         )}
       </Stack>
-      {image && (
+      {category_image && (
         <img
           style={{ borderRadius: "8px", width: "265px" }}
-          src={image}
+          src={category_image}
           alt={title_en ? title_en : title_kh}
         />
       )}

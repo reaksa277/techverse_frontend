@@ -1,4 +1,3 @@
-import { IconCircle } from "../../layouts/serviceSection/styles";
 import { primary } from "../../theme/palette";
 import { CardProps } from "./types";
 import { Typography, Box, Link } from "@mui/material";
@@ -10,9 +9,8 @@ const Card = ({
   title_kh,
   info_en,
   info_kh,
-  image,
+  category_image,
   tag,
-  icon,
   list,
   linkName,
   url,
@@ -37,12 +35,7 @@ const Card = ({
         },
       }}
     >
-      {image && <img style={{ borderRadius: "8px", height: "210px" }} src={image} alt={title_en ? title_en : title_kh} />}
-      {icon && (
-        <IconCircle>
-          <Icon icon={icon} width="40" height="40" />
-        </IconCircle>
-      )}
+      {category_image && <img style={{ borderRadius: "8px", height: "210px" }} src={category_image} alt={title_en ? title_en : title_kh} />}
       {tag && (
         <Typography
           sx={{

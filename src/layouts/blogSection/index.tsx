@@ -67,7 +67,7 @@ const BlogSection = () => {
             <CardBlog
               title_en={blog.title_en}
               info_en={blog.info_en ? blog.info_en : blog.info_kh}
-              image={blog.image}
+              category_image={blog.category_image}
               link={blog.url}
             />
           </Grid>

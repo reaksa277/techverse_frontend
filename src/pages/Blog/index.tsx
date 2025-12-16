@@ -30,7 +30,7 @@ const blogs: CardProps[] = [
     title_en: "AMD Positions Itself as a Platform Power in the AI Era",
     info_en:
       "AMD’s focus on data center AI and open standards signals its ambition to become a core player in the trillion-dollar compute market.",
-    image: "/img/blog/card1.jpg",
+    category_image: "/img/blog/card1.jpg",
     tag: "Case Study",
     date: "August 20, 2023",
     link: "/detail-article"
@@ -39,7 +39,7 @@ const blogs: CardProps[] = [
     title_en: "Building a High-Performance Payment API for Fintech",
     info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    image: "/img/blog/card2.jpg",
+    category_image: "/img/blog/card2.jpg",
     tag: "Case Study",
     date: "August 20, 2023",
     link: "/detail-article"
@@ -48,7 +48,7 @@ const blogs: CardProps[] = [
     title_en: "Building a High-Performance Payment API for Fintech",
     info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    image: "/img/blog/card3.jpg",
+    category_image: "/img/blog/card3.jpg",
     tag: "AI",
     date: "August 20, 2023",
     link: "/detail-article"
@@ -57,7 +57,7 @@ const blogs: CardProps[] = [
     title_en: "The Fate of Google’s Ad Tech Monopoly Is Now in a Judge’s Hands",
     info_en :
       "A judge queried lawyers about whether a breakup made sense during closing arguments on how to fix the tech giant’s dominance in online advertising.",
-    image: "/img/blog/card3.jpg",
+    category_image: "/img/blog/card3.jpg",
     tag: "AI",
     date: "August 20, 2023",
     link: "/detail-article"
@@ -66,7 +66,7 @@ const blogs: CardProps[] = [
     title_en: "Building a High-Performance Payment API for Fintech",
     info_en:
       "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    image: "/img/blog/card3.jpg",
+    category_image: "/img/blog/card3.jpg",
     tag: "AI",
     date: "August 20, 2023",
     link: "/detail-article"
@@ -141,7 +141,7 @@ const Blog = () => {
                     <CardBlog
                       title_en={blog.title_en}
                       info_en={blog.info_en ? blog.info_en : blog.info_kh}
-                      image={blog.image}
+                      category_image={blog.category_image}
                       tag={blog.tag}
                       link={blog.link}
                       date={blog.date}
