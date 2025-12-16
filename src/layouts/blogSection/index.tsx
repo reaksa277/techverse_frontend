@@ -3,6 +3,7 @@ import { Box, Grid, Link, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { BlogSectionWrapper } from "./styles";
 import { CardProps } from "../../components/Card/types";
+import { ArticleService } from "../../services/article";
 
 // const blogs: CardProps[] = [
 //   {
@@ -41,10 +42,10 @@ const BlogSection = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/articles/");
-      const result: CardProps[] = await response.json();
+      const response = await ArticleService.getArticles();
+      const result = await response.json();
 
-      setBlogs(result);
+      setBlogs(result.data);
     } catch (err) {
       console.error("fail to fetch data");
     }

@@ -2,7 +2,7 @@ import { HeroSection, HeroContent } from "./styles";
 import Banner from "../../assets/banner.jpg";
 import { Button } from "../../common/Button";
 import { lazy, useEffect, useState } from "react";
-import axios from "axios";
+import { SlideService } from "../../services/slide";
 
 const Container = lazy(() => import("../../common/Container"));
 
@@ -23,10 +23,10 @@ const Hero = ({ title_en, title_kh, description_en, description_kh, url }: HeroP
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/slides/");
-      const result = await response.data;
+      const response = await SlideService.getSlide();
+      const result = await response.json();
 
-      setData(result.data);
+      setData(result.data[0]);
     } catch (err) {
       setError("fail to fetch data");
     } finally {
