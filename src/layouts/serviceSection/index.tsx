@@ -5,15 +5,6 @@ import { lazy, useEffect, useState } from "react";
 import { ArticleService } from "../../services/article";
 const CardBlog = lazy(() => import("../../components/Card"));
 
-const icons = [
-  "solar:code-square-bold-duotone",
-  "solar:folder-cloud-bold-duotone",
-  "solar:translation-2-line-duotone",
-  "solar:shield-check-bold-duotone",
-  "solar:bug-bold-duotone",
-  "solar:users-group-two-rounded-bold-duotone",
-];
-
 const ServiceSection = () => {
   const [services, setServices] = useState<CardProps[]>([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +13,7 @@ const ServiceSection = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await ArticleService.getArticles();
+      const response = await ArticleService.getServiceArticles();
       const result = await response.json();
 
       setServices(result.data);
@@ -57,9 +48,8 @@ const ServiceSection = () => {
               title_kh={service.title_kh}
               info_en={service.info_en}
               info_kh={service.info_kh}
-              image={service.image}
+              category_image={service.category_image}
               type={service.type}
-              icon={icons[index]}
               url={service.url}
               linkName="Learn More"
             />
