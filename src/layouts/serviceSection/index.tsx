@@ -3,7 +3,7 @@ import { ServicesWrapper } from "./styles";
 import { CardProps } from "../../components/Card/types";
 import { lazy, useEffect, useState } from "react";
 import { ArticleService } from "../../services/article";
-const CardBlog = lazy(() => import("../../components/Card"));
+const CardBlog = lazy(() => import("../../components/Card/card-service"));
 
 const ServiceSection = () => {
   const [services, setServices] = useState<CardProps[]>([]);
