@@ -2,7 +2,7 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import Container from "../../common/Container";
 import ContentBlock from "../../components/ContentBlock";
 import PageHeader from "../../components/PageHeader";
-import Card from "../../components/Card";
+import Card from "../../components/Card/card-service";
 
 import About from "../../content/AboutContent/About.json";
 import WhoWeAre from "../../content/AboutContent/WhoWeAre.json";

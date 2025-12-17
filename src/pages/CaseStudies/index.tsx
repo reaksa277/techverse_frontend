@@ -12,7 +12,7 @@ import SearchInput from "../../common/SearchInput";
 import { lazy, useState } from "react";
 import { CardProps } from "../../components/Card/types";
 
-const CardBlog = lazy(() => import("../../components/Card"));
+const CardBlog = lazy(() => import("../../components/Card/card-service"));
 
 const categories = [
   { value: "", label: "Select category" },

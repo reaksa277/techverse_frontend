@@ -9,13 +9,13 @@ const Card = ({
   title_kh,
   info_en,
   info_kh,
-  category_image,
+  image,
   tag,
-  link,
+  url,
   list,
 }: CardProps) => {
   return (
-    <Link href={link} style={{ textDecoration: "none" }}>
+    <Link href={url} style={{ textDecoration: "none" }}>
       <Box
         sx={{
           backgroundColor: "common.white",
@@ -36,10 +36,10 @@ const Card = ({
           },
         }}
       >
-        {category_image && (
+        {image && (
           <img
             style={{ borderRadius: "8px", width: "100%" }}
-            src={category_image}
+            src={image}
             alt={title_en ? title_en : title_kh}
           />
         )}

@@ -3,7 +3,7 @@ import Container from "../../common/Container";
 import ContentBlock from "../../components/ContentBlock";
 import PageHeader from "../../components/PageHeader";
 import Overview from "../../content/ServiceContent/OverviewConten.json";
-import Card from "../../components/Card";
+import Card from "../../components/Card/card-service";
 import ProblemContent from "../../content/ServiceContent/ProblemContent.json";
 import ProcessContent from "../../content/ServiceContent/ProcessContent.json";
 import OrderBlock from "../../components/Block/OrderBlock";
