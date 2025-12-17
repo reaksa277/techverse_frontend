@@ -14,8 +14,13 @@ const getBlogArticles = () => {
     return fetch(`${BASE_URL}${PREFIX_V1}/homepage/blogs/`);
 }
 
+const getCaseStudies = () => {
+    return fetch(`${BASE_URL}${PREFIX_V1}/homepage/case-studies/`);
+}
+
 export const ArticleService = {
     getArticles,
     getServiceArticles,
     getBlogArticles,
+    getCaseStudies,
 };

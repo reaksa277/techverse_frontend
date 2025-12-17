@@ -16,15 +16,17 @@ import { Icon } from "@iconify/react";
 
 const ContentBlock = ({
   icon,
-  title,
-  content,
+  title_en,
+  title_kh,
+  info_en,
+  info_kh,
   button,
   list,
   t,
   id,
   direction,
   image,
-  link,
+  url,
   linkName,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
@@ -43,7 +45,7 @@ const ContentBlock = ({
           id={id}
           direction={direction}
         >
-          <Grid container spacing={2} alignItems="center">
+          <Grid container spacing={2} alignItems="center">  
             {direction === "right" ? (
               <>
                 <Grid size={{ xs: 12, md: 6 }}>
@@ -51,7 +53,7 @@ const ContentBlock = ({
                   {image && (
                     <img
                       src={image}
-                      alt={title}
+                      alt={title_en ? title_en : title_kh}
                       style={{
                         width: "100%",
                         height: "331.88px",
@@ -71,10 +73,10 @@ const ContentBlock = ({
                         marginBottom: "20px",
                       }}
                     >
-                      {t(title)}
+                      {t(title_en ? title_en : title_kh)}
                     </Typography>
                     <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
-                      {content}
+                      {t(info_en ? info_en : info_kh)}
                     </Typography>
                     <List>
                       {typeof list === "object" &&
@@ -118,10 +120,10 @@ const ContentBlock = ({
                         marginBottom: "20px",
                       }}
                     >
-                      {t(title)}
+                      {t(title_en ? title_en : title_kh)}
                     </Typography>
                     <Typography variant="body1" sx={{ whiteSpace: "pre-line" }}>
-                      {content}
+                      {t(info_en ? info_en : info_kh)}
                     </Typography>
                     <List>
                       {typeof list === "object" &&
@@ -146,9 +148,9 @@ const ContentBlock = ({
                           );
                         })}
                     </List>
-                    {link && (
+                    {url && (
                       <Link
-                        href={link}
+                        href={url}
                         sx={{
                           width: "100%",
                           maxWidth: "180px",
@@ -184,7 +186,7 @@ const ContentBlock = ({
                   {image && (
                     <img
                       src={image}
-                      alt={title}
+                      alt={title_en ? title_en : title_kh}
                       style={{
                         width: "100%",
                         height: "331.88px",

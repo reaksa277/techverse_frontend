@@ -21,53 +21,69 @@ const DevelopmentPage = () => {
       <Container>
         <ContentBlock
           direction="right"
-          title={Overview.title}
-          content={Overview.content}
+          title_en={Overview.title}
+          title_kh={Overview.title}
+          info_en={Overview.content}
+          info_kh={Overview.content}
           image={Overview.image}
           id="about"
         />
 
-        <Box sx={{display: "flex", flexDirection: "column", gap: "40px", marginBottom: "80px"}}>
-
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title_en={ProblemContent.title} list={ProblemContent.list} />
-          </Grid>
-          <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title_en={ProblemContent.title} list={ProblemContent.list} />
-          </Grid>
-        </Grid>
-
-        <Stack direction="column" spacing={2}>
-          <Typography
-            sx={{
-              textAlign: "start",
-              fontSize: "28px",
-              fontWeight: "600",
-            }}
-          >
-            Our Process
-          </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "40px",
+            marginBottom: "80px",
+          }}
+        >
           <Grid container spacing={2}>
-            {ProcessContent.map((item, index) => {
-              return <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
-                <OrderBlock
-                    number={item.number}
-                    content={item.content}
-                 />
-              </Grid>;
-            })}
+            <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+              <Card
+                title_en={ProblemContent.title}
+                list={ProblemContent.list}
+              />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+              <Card
+                title_en={ProblemContent.title}
+                list={ProblemContent.list}
+              />
+            </Grid>
           </Grid>
-        </Stack>
 
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title_en={TechnoContent.title} list={TechnoContent.list} />
+          <Stack direction="column" spacing={2}>
+            <Typography
+              sx={{
+                textAlign: "start",
+                fontSize: "28px",
+                fontWeight: "600",
+              }}
+            >
+              Our Process
+            </Typography>
+            <Grid container spacing={2}>
+              {ProcessContent.map((item, index) => {
+                return (
+                  <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
+                    <OrderBlock number={item.number} content={item.content} />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Stack>
+
+          <Grid container spacing={2}>
+            <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+              <Card title_en={TechnoContent.title} list={TechnoContent.list} />
+            </Grid>
+            <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+              <Card
+                title_en={ReasonWhyContent.title}
+                list={ReasonWhyContent.list}
+              />
+            </Grid>
           </Grid>
-          <Grid size={{ xs: 12, md: 6, lg: 6 }}>
-            <Card title_en={ReasonWhyContent.title} list={ReasonWhyContent.list} />
-          </Grid>
-        </Grid>
         </Box>
       </Container>
     </>

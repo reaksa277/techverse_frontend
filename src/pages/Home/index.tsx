@@ -1,11 +1,9 @@
 import { lazy } from "react";
-import CaseStudy from "../../content/CaseStudy.json";
-import paymentImg from "../../assets/payment.jpg";
 import CommunContent from "../../content/CommunContent.json";
+import CaseStudySection from "../../layouts/blogSection/case-studies";
 
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
-const ContentBlock = lazy(() => import("../../components/ContentBlock"));
 const HeroSection = lazy(() => import("../../layouts/heroSection"));
 const ServiceSection = lazy(() => import("../../layouts/serviceSection"));
 const BlogSection = lazy(() => import("../../layouts/blogSection"));
@@ -24,16 +22,7 @@ const Home = () => {
       />
       <Container>
         <ServiceSection />
-        <ContentBlock
-          direction="left"
-          title={CaseStudy.title}
-          content={CaseStudy.text}
-          list={CaseStudy.list}
-          link={CaseStudy.link}
-          linkName={CaseStudy.linkName}
-          image={paymentImg}
-          id="case-study"
-        />
+        <CaseStudySection />
         <BlogSection />
         <CommunSection
           title={CommunContent.title}

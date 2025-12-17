@@ -26,8 +26,10 @@ const AboutPage = () => {
       <Container>
         <ContentBlock
           direction="right"
-          title={About.title}
-          content={About.content}
+          title_en={About.title}
+          title_kh={About.title}
+          info_en={About.content}
+          info_kh={About.content}
           image={About.image}
           id="about"
         />
@@ -92,8 +94,10 @@ const AboutPage = () => {
         </Grid>
         <ContentBlock
           direction="left"
-          title={WhoWeAre.title}
-          content={WhoWeAre.content}
+          title_en={WhoWeAre.title}
+          title_kh={WhoWeAre.title}
+          info_en={WhoWeAre.content}
+          info_kh={WhoWeAre.content}
           image={WhoWeAre.image}
           id="WhoWeAre"
         />
@@ -112,7 +116,11 @@ const AboutPage = () => {
             {WhatWeDoContent.map((item, index) => {
               return (
                 <Grid key={index} size={{ xs: 12, md: 6, lg: 6 }}>
-                  <Card icon={item.icon} title_en={item.title} list={item.list} />
+                  <Card
+                    icon={item.icon}
+                    title_en={item.title}
+                    list={item.list}
+                  />
                 </Grid>
               );
             })}

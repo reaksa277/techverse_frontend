@@ -15,9 +15,7 @@ const BlogSection = () => {
     try {
       const response = await ArticleService.getBlogArticles();
       const result = await response.json();
-
-        console.log("result", result);
-
+      
       setBlogs(result.data);
     } catch (err) {
       setError("fail to fetch data");
