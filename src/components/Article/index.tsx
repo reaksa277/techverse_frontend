@@ -4,9 +4,11 @@ import { primary } from "../../theme/palette";
 import { DetailArticleProps } from "./types";
 
 const DetailArticle = ({
-  title,
+  title_en,
+  title_kh,
   image,
-  content,
+  description_en,
+  description_kh,
   profile,
   author,
   date,
@@ -17,7 +19,7 @@ const DetailArticle = ({
       <Container>
         <Box sx={{ width: "595px", margin: "40px auto" }}>
           <Typography variant="h3" sx={{ fontSize: "36px", mb: 2 }}>
-            {title}
+            {title_en ? title_en : title_kh}
           </Typography>
           <Box style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
@@ -48,12 +50,12 @@ const DetailArticle = ({
         <img
           style={{ width: "100%", height: "675px", borderRadius: "16px" }}
           src={image}
-          alt={title}
+          alt={title_en ? title_en : title_kh}
         />
       </Container>
       <Box sx={{ width: "595px", margin: "40px auto" }}>
         <Typography mt={3} variant="body1" sx={{ whiteSpace: "pre-line" }}>
-          {content}
+          {description_en ? description_en : description_kh}
         </Typography>
       </Box>
     </>

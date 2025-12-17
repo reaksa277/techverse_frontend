@@ -1,9 +1,11 @@
 export interface DetailArticleProps {
-  title: string;
+  title_en: string;
+  title_kh?: string;
   image: string;
-  content: string;
-  author: string;
-  date: string;
-  profile: string;
-  tag: string;
+  description_en: string;
+  description_kh?: string;
+  author?: string;
+  date?: string;
+  profile?: string;
+  tag?: string;
 }

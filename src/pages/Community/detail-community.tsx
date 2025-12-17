@@ -11,13 +11,13 @@ const DetailCommunity = () => {
   return (
     <>
       <DetailArticle
-        title={CommnunityDetailContent.title}
+        title_en={CommnunityDetailContent.title}
         image={CommnunityDetailContent.image}
         profile={CommnunityDetailContent.profile}
         author={CommnunityDetailContent.author}
         date={CommnunityDetailContent.date}
         tag={CommnunityDetailContent.tag}
-        content={CommnunityDetailContent.content}
+        description_en={CommnunityDetailContent.content}
       />
       <Container>
         <Box

@@ -13,9 +13,10 @@ const Card = ({
   tag,
   url,
   list,
+  id,
 }: CardProps) => {
   return (
-    <Link href={url} style={{ textDecoration: "none" }}>
+    <Link href={`detail-articles/${id}`} style={{ textDecoration: "none" }}>
       <Box
         sx={{
           backgroundColor: "common.white",

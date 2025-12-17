@@ -18,9 +18,15 @@ const getCaseStudies = () => {
     return fetch(`${BASE_URL}${PREFIX_V1}/homepage/case-studies/`);
 }
 
+const getArticleById = (id: number) => {
+    return fetch(`${BASE_URL}${PREFIX_V1}/articles/${id}`);
+}
+
+
 export const ArticleService = {
     getArticles,
     getServiceArticles,
     getBlogArticles,
     getCaseStudies,
+    getArticleById,
 };

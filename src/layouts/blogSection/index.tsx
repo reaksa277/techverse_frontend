@@ -15,7 +15,10 @@ const BlogSection = () => {
     try {
       const response = await ArticleService.getBlogArticles();
       const result = await response.json();
-      
+
+      console.log("article", result);
+
+
       setBlogs(result.data);
     } catch (err) {
       setError("fail to fetch data");
@@ -36,15 +39,16 @@ const BlogSection = () => {
         Latest Blog & Tech News
       </Typography>
       <Grid container spacing={2}>
-        {blogs.map((blog, index) => (
-          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
+        {blogs.map((blog) => (
+          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={blog.id}>
             <CardBlog
               title_en={blog.title_en}
               title_kh={blog.title_kh}
-                info_en={blog.info_en}
-                info_kh={blog.info_kh}
+              info_en={blog.info_en}
+              info_kh={blog.info_kh}
               image={blog.image}
-              url={blog.url}
+              url={blog.url + "/" + blog.id}
+              id={blog.id}
             />
           </Grid>
         ))}
