@@ -1,9 +1,13 @@
+const BASE_URL = "http://127.0.0.1:8000";
+
+const PREFIX_V1 = "/api/v1"
+
 const getArticles = () => {
-    return fetch("http://127.0.0.1:8000/api/articles/");
+    return fetch(`${BASE_URL}${PREFIX_V1}/articles/`);
 }
 
 const getServiceArticles = () => {
-    return fetch("http://127.0.0.1:8000/api/homepage/services/");
+    return fetch(`${BASE_URL}${PREFIX_V1}/homepage/services/`);
 }
 
 export const ArticleService = {
