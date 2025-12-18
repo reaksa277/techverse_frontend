@@ -1,6 +1,6 @@
-const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "http://127.0.0.1:8000";
 
-const PREFIX_V1 = "/api/v1"
+export const PREFIX_V1 = "/api/v1"
 
 const getArticles = () => {
     return fetch(`${BASE_URL}${PREFIX_V1}/articles/`);
