@@ -1,8 +1,9 @@
 import { primary } from "../../theme/palette";
 import { CardProps } from "./types";
-import { Typography, Box, Link } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { List } from "./styles";
+import { Link } from "react-router-dom";
 
 const Card = ({
   title_en,
@@ -16,7 +17,7 @@ const Card = ({
   id,
 }: CardProps) => {
   return (
-    <Link href={`detail-articles/${id}`} style={{ textDecoration: "none" }}>
+    <Link to={url} style={{ textDecoration: "none" }}>
       <Box
         sx={{
           backgroundColor: "common.white",

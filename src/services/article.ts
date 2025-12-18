@@ -19,7 +19,7 @@ const getCaseStudies = () => {
 }
 
 const getArticleById = (id: number) => {
-    return fetch(`${BASE_URL}${PREFIX_V1}/articles/${id}`);
+    return fetch(`${BASE_URL}${PREFIX_V1}/detail-articles/${id}`);
 }
 
 

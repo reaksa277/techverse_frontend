@@ -4,7 +4,7 @@ export interface CardProps {
   title_en: string;
   title_kh: string;
   icon?: string;
-  url?: string;
+  url: string;
   info_en?: string;
   info_kh?: string;
   tag?: string;

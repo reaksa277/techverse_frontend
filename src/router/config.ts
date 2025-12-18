@@ -45,7 +45,7 @@ const routes = [
     component: "Service/development",
   },
   {
-    path: ["/detail-article/:id"],
+    path: ["/detail-articles/:id"],
     exact: true,
     component: "Article/article-detail-page",
   },

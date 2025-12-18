@@ -16,9 +16,6 @@ const BlogSection = () => {
       const response = await ArticleService.getBlogArticles();
       const result = await response.json();
 
-      console.log("article", result);
-
-
       setBlogs(result.data);
     } catch (err) {
       setError("fail to fetch data");
@@ -47,7 +44,7 @@ const BlogSection = () => {
               info_en={blog.info_en}
               info_kh={blog.info_kh}
               image={blog.image}
-              url={blog.url + "/" + blog.id}
+              url={`/detail-articles/${blog.id}`}
               id={blog.id}
             />
           </Grid>

@@ -17,8 +17,6 @@ const ArticleDatailPage = () => {
       const response = await ArticleService.getArticleById(Number(id));
       const result = await response.json();
 
-      console.log("result detail article: ", result);
-
       setDetailArticle(result.data);
     } catch (error) {
       console.error("Error fetching article detail:", error);
@@ -26,16 +24,21 @@ const ArticleDatailPage = () => {
   };
 
   useEffect(() => {
+    if (!id) return;
     fetchArticleDetail();
   }, [id]);
 
+  if (!detailAritcle) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <DetailArticle
-      title_en={detailAritcle?.title_en || ""}
-      title_kh={detailAritcle?.title_kh || ""}
-      description_en={detailAritcle?.description_en || ""}
-      description_kh={detailAritcle?.description_kh || ""}
-      image={detailAritcle?.image || ""}
+      title_en={detailAritcle.title_en}
+      title_kh={detailAritcle.title_kh}
+      description_en={detailAritcle.description_en}
+      description_kh={detailAritcle.description_kh}
+      image={detailAritcle.image}
     />
   );
 };
