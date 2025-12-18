@@ -11,9 +11,10 @@ import {
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
 import SearchInput from "../../common/SearchInput";
-import { lazy, useState } from "react";
-import { CardProps } from "../../components/Card/types";
+import { lazy, useEffect, useState } from "react";
 import { primary } from "../../theme/palette";
+import { BlogService } from "../../services/blogs";
+import { CardDetailProps } from "../../components/CardDetail/types";
 
 const CardBlog = lazy(() => import("../../components/CardDetail"));
 
@@ -25,56 +26,28 @@ const categories = [
   { value: "mobile-development", label: "Mobile Development" },
 ];
 
-const blogs: CardProps[] = [
-  {
-    title_en: "AMD Positions Itself as a Platform Power in the AI Era",
-    info_en:
-      "AMD’s focus on data center AI and open standards signals its ambition to become a core player in the trillion-dollar compute market.",
-    category_image: "/img/blog/card1.jpg",
-    tag: "Case Study",
-    date: "August 20, 2023",
-    link: "/detail-article"
-  },
-  {
-    title_en: "Building a High-Performance Payment API for Fintech",
-    info_en:
-      "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    category_image: "/img/blog/card2.jpg",
-    tag: "Case Study",
-    date: "August 20, 2023",
-    link: "/detail-article"
-  },
-  {
-    title_en: "Building a High-Performance Payment API for Fintech",
-    info_en:
-      "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    category_image: "/img/blog/card3.jpg",
-    tag: "AI",
-    date: "August 20, 2023",
-    link: "/detail-article"
-  },
-  {
-    title_en: "The Fate of Google’s Ad Tech Monopoly Is Now in a Judge’s Hands",
-    info_en :
-      "A judge queried lawyers about whether a breakup made sense during closing arguments on how to fix the tech giant’s dominance in online advertising.",
-    category_image: "/img/blog/card3.jpg",
-    tag: "AI",
-    date: "August 20, 2023",
-    link: "/detail-article"
-  },
-  {
-    title_en: "Building a High-Performance Payment API for Fintech",
-    info_en:
-      "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    category_image: "/img/blog/card3.jpg",
-    tag: "AI",
-    date: "August 20, 2023",
-    link: "/detail-article"
-  },
-];
-
 const Blog = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [blogs, setBlogs] = useState<CardDetailProps[]>([]);
+
+  const fetchData = async () => {
+
+    try {
+        const response = await BlogService.getAllBlogs();
+        const result = await response.json();
+
+        console.log("blog result: ", result.data);
+
+
+        setBlogs(result.data);
+    } catch (err) {
+        console.error("fail to fetch data");
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  },[]);
 
   return (
     <>
@@ -136,15 +109,16 @@ const Blog = () => {
         >
           <Grid size={{ xs: 12, md: 6, lg: 8 }}>
             <Grid container spacing={2} sx={{justifyContent: "center"}}>
-                {blogs.map((blog, index) => (
-                  <Grid size={{ xs: 12, md: 6, lg: 12 }} key={index}>
+                {blogs.map((blog) => (
+                  <Grid size={{ xs: 12, md: 6, lg: 12 }} key={blog.id}>
                     <CardBlog
                       title_en={blog.title_en}
-                      info_en={blog.info_en ? blog.info_en : blog.info_kh}
-                      category_image={blog.category_image}
+                      info_en={blog.info_en}
+                      image={blog.image}
                       tag={blog.tag}
-                      link={blog.link}
-                      date={blog.date}
+                      url={`/detail-articles/${blog.id}`}
+                      created_at={blog.created_at}
+                      id={blog.id}
                     />
                   </Grid>
                 ))}

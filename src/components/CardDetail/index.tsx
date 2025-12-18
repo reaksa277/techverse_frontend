@@ -1,20 +1,21 @@
 import { Icon } from "@iconify/react";
 import { IconCircle } from "../../layouts/serviceSection/styles";
-import { CardProps } from "../Card/types";
 import { Link, Typography, Box, Stack } from "@mui/material";
 import { primary } from "../../theme/palette";
+import { CardDetailProps } from "../../components/CardDetail/types"
 
 const CardDetail = ({
   title_en,
   title_kh,
   info_en,
   info_kh,
-  category_image,
+  image,
   tag,
+  url,
+  created_at,
   icon,
-  link,
-  date,
-}: CardProps) => {
+  id,
+}: CardDetailProps) => {
   return (
     <Box
       sx={{
@@ -56,7 +57,7 @@ const CardDetail = ({
               {tag}
             </Typography>
           )}
-          <Typography variant="body2">{date}</Typography>
+          <Typography variant="body2">{created_at}</Typography>
         </Box>
         <Typography
           sx={{
@@ -84,9 +85,9 @@ const CardDetail = ({
         >
           {info_en ? info_en : info_kh}
         </Typography>
-        {link && (
+        {url && (
           <Link
-            href={link}
+            href={url}
             sx={{
               textTransform: "underline",
               color: "primary.main",
@@ -101,10 +102,10 @@ const CardDetail = ({
           </Link>
         )}
       </Stack>
-      {category_image && (
+      {image && (
         <img
           style={{ borderRadius: "8px", width: "265px" }}
-          src={category_image}
+          src={image}
           alt={title_en ? title_en : title_kh}
         />
       )}
