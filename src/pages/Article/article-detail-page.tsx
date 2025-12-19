@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { lazy, useEffect, useState } from "react";
 
 import { ArticleService } from "../../services/article";

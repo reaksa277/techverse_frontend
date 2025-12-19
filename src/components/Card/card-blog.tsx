@@ -9,7 +9,7 @@ const Card = ({
   title_kh,
   info_en,
   info_kh,
-  category_image,
+  image,
   tag,
   list,
   linkName,
@@ -35,7 +35,7 @@ const Card = ({
         },
       }}
     >
-      {category_image && <img style={{ borderRadius: "8px", height: "210px" }} src={category_image} alt={title_en ? title_en : title_kh} />}
+      {image && <img style={{ borderRadius: "8px", height: "210px" }} src={image} alt={title_en ? title_en : title_kh} />}
       {tag && (
         <Typography
           sx={{

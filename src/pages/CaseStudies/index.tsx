@@ -9,10 +9,11 @@ import {
 } from "@mui/material";
 import PageHeader from "../../components/PageHeader";
 import SearchInput from "../../common/SearchInput";
-import { lazy, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 import { CardProps } from "../../components/Card/types";
+import { CaseStudiesService } from "../../services/case-studies";
 
-const CardBlog = lazy(() => import("../../components/Card/card-service"));
+const CardBlog = lazy(() => import("../../components/Card/card-blog"));
 
 const categories = [
   { value: "", label: "Select category" },
@@ -22,47 +23,28 @@ const categories = [
   { value: "mobile-development", label: "Mobile Development" },
 ];
 
-const caseStudy: CardProps[] = [
-  {
-    title_en: "Building a High-Performance Payment API for Fintech",
-    info_en:
-      "We engineered a scalable Spring Boot + PostgreSQL system capable of processing 1M+ transactions per day with zero downtime and enhanced security.",
-    category_image: "/img/casestudy/payment.jpg",
-    tag: "Case Study",
-    link: "/detail-case-study",
-    linkName: "View case study",
-  },
-  {
-    title_en: "Scalable E-Commerce Platform Development",
-    info_en:
-      "Built a high-performance e-commerce platform using React, Next.js, and Spring Boot. Implemented microservices architecture, integrated secure payment gateways, and achieved 99.9% uptime under high traffic.",
-    category_image: "/img/casestudy/case1.png",
-    tag: "Case Study",
-    link: "/detail-case-study",
-    linkName: "View case study",
-  },
-  {
-    title_en: "Real-Time Chat Application",
-    info_en:
-      "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
-    category_image: "/img/casestudy/case2.png",
-    tag: "Case Study",
-    link: "/detail-case-study",
-    linkName: "View case study",
-  },
-  {
-    title_en: "Task & Project Management Tool",
-    info_en:
-      "Developed a cross-platform chat application with WebSocket and Firebase for real-time messaging. Features include media sharing, typing indicators, and message encryption.",
-    category_image: "/img/casestudy/case3.webp",
-    tag: "Case Study",
-    link: "/detail-case-study",
-    linkName: "View case study",
-  },
-];
-
-const Blog = () => {
+const CaseStudies = () => {
+  const [caseStudies, setCaseStudies] = useState<CardProps[]>([]);
   const [searchValue, setSearchValue] = useState("");
+
+  const fetchCaseStudies = async () => {
+    try {
+
+        const response = await CaseStudiesService.getCaseStudies();
+        const result = await response.json();
+
+        console.log("case studies:", result.data);
+
+
+        setCaseStudies(result.data);
+    } catch (err) {
+        console.error('fail to fetch case studies');
+    }
+  }
+
+  useEffect(() => {
+    fetchCaseStudies();
+  }, []);
 
   return (
     <>
@@ -120,15 +102,16 @@ const Blog = () => {
         <Grid container spacing={4} sx={{ margin: "40px 0" }}>
           <Grid size={{ xs: 12, md: 6, lg: 12 }}>
             <Grid container spacing={2} sx={{ justifyContent: "center" }}>
-              {caseStudy.map((item, index) => (
+              {caseStudies.map((item, index) => (
                 <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
                   <CardBlog
                     title_en={item.title_en}
+                    title_kh={item.title_kh}
                     info_en={item.info_en ? item.info_en : item.info_kh}
-                    category_image={item.category_image}
+                    image={item.image}
                     tag={item.tag}
-                    link={item.link}
-                    linkName={item.linkName}
+                    url={item.url}
+                    linkName="View case study"
                   />
                 </Grid>
               ))}
@@ -145,4 +128,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default CaseStudies;

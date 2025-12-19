@@ -2,7 +2,8 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import { primary } from "../../theme/palette";
 
 interface Props {
-  title: string;
+  title_en: string;
+  title_kh: string;
   profile?: string;
   date?: string;
   image: string;
@@ -10,7 +11,7 @@ interface Props {
   tag: string;
 }
 
-const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
+const HeadTitle = ({ title_en, title_kh, profile, date, image, author, tag }: Props) => {
   return (
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, md: 6, lg: 6 }}>
@@ -18,7 +19,7 @@ const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
             direction="column"
             sx={{ justifyContent: "space-between", height: "378px" }}
           >
-            <Typography sx={{ fontSize: "48px", fontWeight: "600" }}>{title}</Typography>
+            <Typography sx={{ fontSize: "48px", fontWeight: "600" }}>{title_en ? title_en : title_kh}</Typography>
             <Stack
               direction="row"
               spacing={1}
@@ -28,7 +29,7 @@ const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
                 {profile && (
                   <img
                     src={profile}
-                    alt={title}
+                    alt={title_en ? title_en : title_kh}
                     style={{
                       width: "48px",
                       height: "48px",
@@ -59,7 +60,7 @@ const HeadTitle = ({ title, profile, date, image, author, tag }: Props) => {
         <Grid size={{ xs: 12, md: 6, lg: 6 }}>
           <img
             src={image}
-            alt={title}
+            alt={title_en ? title_en : title_kh}
             style={{ width: "100%", height: "378px", borderRadius: "8px" }}
           />
         </Grid>

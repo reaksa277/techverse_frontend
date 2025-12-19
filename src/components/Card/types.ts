@@ -1,5 +1,6 @@
 export interface CardProps {
   category_image?: string;
+  image?: string;
   title_en: string;
   title_kh?: string;
   icon?: string;

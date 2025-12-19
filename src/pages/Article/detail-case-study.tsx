@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Box, Grid } from "@mui/material";
 import Container from "../../common/Container";
 import HeadTitle from "../../components/Block/headTitle";
@@ -9,8 +10,35 @@ import FlipBlock from "../../components/Block/flipBlock";
 import ProblemContent from "../../content/CaseStudyContent/ProblemContent.json";
 import TechnologyContent from "../../content/CaseStudyContent/TechnologyContent.json";
 import FeedbackContent from "../../content/CaseStudyContent/FeedbackContent.json";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ArticleService } from "../../services/article";
+import { DetailArticleProps } from "../../components/Article/types";
 
 const CaseStudyDetail = () => {
+  const { id } = useParams<{ id: string }>();
+  const [detailAritcle, setDetailArticle] = useState<DetailArticleProps | null>(null);
+
+  const fetchArticleDetail = async () => {
+    try {
+      const response = await ArticleService.getArticleById(Number(id));
+      const result = await response.json();
+
+      setDetailArticle(result.data);
+    } catch (error) {
+      console.error("Error fetching article detail:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (!id) return;
+    fetchArticleDetail();
+  }, [id]);
+
+  if (!detailAritcle) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Container>
       <Box
@@ -22,7 +50,8 @@ const CaseStudyDetail = () => {
         }}
       >
         <HeadTitle
-          title={HeadTitleContent.title}
+          title_en={detailAritcle.title_en}
+          title_kh={detailAritcle.title_en}
           image={HeadTitleContent.image}
           author={HeadTitleContent.author}
           profile={HeadTitleContent.profile}
@@ -57,10 +86,16 @@ const CaseStudyDetail = () => {
         <FlipBlock title={ProblemContent.title} list={ProblemContent.list} />
 
         {/* Technology */}
-        <FlipBlock title={TechnologyContent.title} list={TechnologyContent.list} />
+        <FlipBlock
+          title={TechnologyContent.title}
+          list={TechnologyContent.list}
+        />
 
         {/* client feetback */}
-        <FlipBlock title={FeedbackContent.title} description={FeedbackContent.description} />
+        <FlipBlock
+          title={FeedbackContent.title}
+          description={FeedbackContent.description}
+        />
       </Box>
     </Container>
   );
