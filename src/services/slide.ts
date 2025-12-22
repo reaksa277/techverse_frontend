@@ -2,7 +2,7 @@ import { BASE_URL, PREFIX_V1 } from "./article";
 
 
 const getSlide = () => {
-    return fetch(`${BASE_URL}${PREFIX_V1}/slides`);
+    return fetch(`${BASE_URL}${PREFIX_V1}/homepage/slides`);
 }
 
 const getAdvertisement = () => {
