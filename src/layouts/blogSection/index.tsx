@@ -3,7 +3,7 @@ import { Box, Grid, Link, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { BlogSectionWrapper } from "./styles";
 import { CardProps } from "../../components/CardBlog/types";
-import { ArticleService } from "../../services/article";
+import { ArticleService } from "../../services/api";
 
 const CardBlog = lazy(() => import("../../components/CardBlog"));
 

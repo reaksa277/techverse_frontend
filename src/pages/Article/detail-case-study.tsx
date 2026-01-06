@@ -12,7 +12,7 @@ import TechnologyContent from "../../content/CaseStudyContent/TechnologyContent.
 import FeedbackContent from "../../content/CaseStudyContent/FeedbackContent.json";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ArticleService } from "../../services/article";
+import { ArticleService } from "../../services/api";
 import { DetailArticleProps } from "../../components/Article/types";
 
 const CaseStudyDetail = () => {

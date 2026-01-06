@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { lazy, useEffect, useState } from "react";
 
-import { ArticleService } from "../../services/article";
+import { ArticleService } from "../../services/api";
 import { DetailArticleProps } from "../../components/Article/types";
 import { useParams } from "react-router-dom";
 

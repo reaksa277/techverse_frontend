@@ -1,4 +1,4 @@
-import { BASE_URL, PREFIX_V1 } from "./article";
+import { BASE_URL, PREFIX_V1 } from "./api";
 
 
 const getSlide = () => {

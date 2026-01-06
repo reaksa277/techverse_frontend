@@ -7,6 +7,8 @@ import Router from "./router";
 import i18n from "./translation";
 import ThemeProvider from "./theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -14,6 +16,7 @@ const App = () => (
     <BrowserRouter>
       <I18nextProvider i18n={i18n}>
         <ThemeProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
           <Router />
         </ThemeProvider>
       </I18nextProvider>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ContentBlock from "../../components/ContentBlock";
-import { ArticleService } from "../../services/article";
+import { ArticleService } from "../../services/api";
 import { ContentBlockProps } from "../../components/ContentBlock/types";
 
 
